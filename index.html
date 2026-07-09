@@ -77,8 +77,8 @@
   <script src="https://www.youtube.com/iframe_api"></script>
 
   <script>
-    // Substitua pelo link real gerado no Apps Script da Planilha Nova (Curso)
-    const URL_API = "SUA_URL_DO_APPS_SCRIPT_AQUI"; 
+    // URL inserida automaticamente com base no link enviado
+    const URL_API = "https://script.google.com/macros/s/AKfycbx6cDH2N-D5TeYaITp69pjv-jy7Ub6fvP-ADXBZMC_T6OOSDaTwY87qsU1LmyxnGGSRGA/exec"; 
     
     let aulaAtualId = "";
     let alunoEmail = "";
@@ -117,6 +117,11 @@
       const container = document.getElementById("listaAulasContainer");
       container.innerHTML = "";
       
+      if (aulas.length === 0) {
+        container.innerHTML = "<div style='color:#64748b; font-size:14px;'>Nenhuma aula cadastrada na planilha do curso.</div>";
+        return;
+      }
+      
       aulas.forEach(aula => {
         let card = document.createElement("div");
         card.id = "card-" + aula.id;
@@ -136,7 +141,7 @@
     }
 
     function carregarAula(aula) {
-      aulaAtualId = aula.id;
+      aulaAtualId = $.trim(aula.id);
       document.getElementById("tituloAulaAtiva").innerText = aula.titulo;
       document.getElementById("statusMsg").innerText = "";
       document.getElementById("videoContainer").style.display = "block";
@@ -157,7 +162,6 @@
       }
     }
 
-    // Identifica o fim do vídeo de forma autônoma
     function monitorarFimDoVideo(event) {
       if (event.data === YT.PlayerState.ENDED) {
         let aulaObjeto = bancoAulasGlobais.find(a => a.id === aulaAtualId);
