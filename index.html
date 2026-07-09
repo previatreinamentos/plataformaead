@@ -8,58 +8,44 @@
     :root { --primary: #0f172a; --accent: #2563eb; --success: #10b981; --bg: #f1f5f9; --text: #334155; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; margin: 0; background: var(--bg); color: var(--text); }
     
-    /* Layout */
     .container { display: flex; gap: 25px; max-width: 1400px; margin: 0 auto; padding: 30px; box-sizing: border-box; }
     .sidebar { width: 35%; background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); height: calc(100vh - 100px); overflow-y: auto; }
     .main-content { width: 65%; background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: center; }
     
-    /* Cards de Aula Modernos */
     .card-aula { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 15px; cursor: pointer; transition: all 0.25s ease; position: relative; display: flex; flex-direction: column; gap: 10px; }
     .card-aula:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 12px 20px -8px rgba(37,99,235,0.15); }
     .card-aula.ativa { border-color: var(--accent); background: #eff6ff; }
     .card-titulo { font-weight: 600; font-size: 16px; color: var(--primary); padding-right: 90px; }
     
-    /* Badges */
     .badge { position: absolute; top: 20px; right: 20px; padding: 5px 10px; font-size: 11px; font-weight: 700; border-radius: 30px; text-transform: uppercase; letter-spacing: 0.5px; }
     .badge.pendente { background: #fef3c7; color: #d97706; }
     .badge.concluida { background: #dcfce7; color: #16a34a; }
     
-    /* Player Limpo do YouTube */
     .video-container { width: 100%; display: none; }
     .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
     .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
     
-    /* Box de Login Profissional */
-    .login-screen { max-width: 400px; margin: 80px auto; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05); text-align: center; }
-    .header-boasvindas { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #f1f5f9; text-align: left; display: none; }
-    
-    input { width: 100%; padding: 14px; margin: 10px 0; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-size: 15px; background: #f8fafc; transition: all 0.2s; }
-    input:focus { border-color: var(--accent); background: #fff; outline: none; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
-    button { background: var(--accent); color: white; border: none; padding: 14px; font-size: 16px; font-weight: 600; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 10px; transition: background 0.2s; }
-    button:hover { background: #1d4ed8; }
+    .loader-screen { text-align: center; margin-top: 150px; font-size: 18px; font-weight: 600; color: var(--primary); }
+    .header-boasvindas { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #f1f5f9; text-align: left; }
     #statusMsg { font-size: 14px; font-weight: 600; margin-top: 15px; text-align: center; }
   </style>
 </head>
 <body>
 
-  <!-- Tela de Login (CPF e Senha) -->
-  <div id="telaLogin" class="login-screen">
-    <h2 style="color: var(--primary); margin: 0 0 10px 0;">Acesso à Plataforma</h2>
-    <p style="color: #64748b; font-size: 14px; margin-bottom: 25px;">Insira suas credenciais cadastradas para assistir às aulas.</p>
-    <input type="text" id="cpfAluno" placeholder="CPF (somente números)">
-    <input type="password" id="senhaAluno" placeholder="Sua Senha">
-    <button onclick="acessarPlataforma()">Entrar no Treinamento</button>
+  <!-- Tela de Carregamento Inicial -->
+  <div id="telaCarregando" class="loader-screen">
+    <p>Carregando ambiente virtual de aprendizagem...</p>
   </div>
 
   <!-- Tela Principal do Curso -->
   <div id="telaPlataforma" class="container" style="display: none;">
     <div class="sidebar">
-      <div id="headerBoasVindas" class="header-boasvindas">
+      <div class="header-boasvindas">
         <span style="font-size: 13px; color: #64748b; font-weight: 500;">Bem-vindo(a),</span>
         <div id="nomeUsuario" style="font-size: 18px; font-weight: 700; color: var(--primary);">Aluno</div>
       </div>
       <h4 style="margin: 0 0 15px 0; color: #64748b; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;">Grade Curricular</h4>
-      <div id="listaAulasContainer">Carregando módulos...</div>
+      <div id="listaAulasContainer">Buscando aulas...</div>
     </div>
     
     <div class="main-content">
@@ -73,11 +59,9 @@
     </div>
   </div>
 
-  <!-- API oficial do Player do YouTube -->
   <script src="https://www.youtube.com/iframe_api"></script>
 
   <script>
-    // URL inserida automaticamente com base no link enviado
     const URL_API = "https://script.google.com/macros/s/AKfycbx6cDH2N-D5TeYaITp69pjv-jy7Ub6fvP-ADXBZMC_T6OOSDaTwY87qsU1LmyxnGGSRGA/exec"; 
     
     let aulaAtualId = "";
@@ -85,32 +69,41 @@
     let player = null;
     let bancoAulasGlobais = [];
 
-    function acessarPlataforma() {
-      const cpf = document.getElementById("cpfAluno").value.trim();
-      const senha = document.getElementById("senhaAluno").value.trim();
+    // Captura automática dos parâmetros do link assim que a página abre
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const cpf = urlParams.get('cpf');
       
-      if (!cpf || !senha) { alert("Por favor, preencha o CPF e a Senha."); return; }
+      if (!cpf) {
+        document.getElementById("telaCarregando").innerHTML = "<p style='color:red;'>Erro: CPF de autenticação não fornecido no link.</p>";
+        return;
+      }
       
+      autenticarDireto(cpf);
+    };
+
+    function autenticarDireto(cpfAluno) {
       fetch(URL_API, {
         method: "POST",
-        body: JSON.stringify({ acao: "autenticarEBuscarDados", cpf: cpf, senha: senha })
+        body: JSON.stringify({ acao: "autenticarEBuscarDados", cpf: cpfAluno })
       })
       .then(res => res.json())
       .then(resposta => {
         if (resposta.erro) {
-          alert(resposta.erro);
+          document.getElementById("telaCarregando").innerHTML = `<p style='color:red;'>${resposta.erro}</p>`;
         } else {
           alunoEmail = resposta.aluno.email;
           bancoAulasGlobais = resposta.aulas;
           
           document.getElementById("nomeUsuario").innerText = resposta.aluno.nome;
-          document.getElementById("headerBoasVindas").style.display = "block";
-          document.getElementById("telaLogin").style.display = "none";
+          document.getElementById("telaCarregando").style.display = "none";
           document.getElementById("telaPlataforma").style.display = "flex";
           
           renderizarCards(resposta.aulas);
         }
-      }).catch(() => alert("Erro crítico na comunicação com o servidor de autenticação."));
+      }).catch(() => {
+        document.getElementById("telaCarregando").innerHTML = "<p style='color:red;'>Erro de comunicação com o servidor de dados do curso.</p>";
+      });
     }
 
     function renderizarCards(aulas) {
@@ -118,7 +111,7 @@
       container.innerHTML = "";
       
       if (aulas.length === 0) {
-        container.innerHTML = "<div style='color:#64748b; font-size:14px;'>Nenhuma aula cadastrada na planilha do curso.</div>";
+        container.innerHTML = "<div style='color:#64748b; font-size:14px;'>Nenhuma aula localizada.</div>";
         return;
       }
       
@@ -141,7 +134,7 @@
     }
 
     function carregarAula(aula) {
-      aulaAtualId = $.trim(aula.id);
+      aulaAtualId = aula.id;
       document.getElementById("tituloAulaAtiva").innerText = aula.titulo;
       document.getElementById("statusMsg").innerText = "";
       document.getElementById("videoContainer").style.display = "block";
@@ -168,7 +161,7 @@
         if (aulaObjeto && aulaObjeto.concluida) { return; }
 
         document.getElementById("statusMsg").style.color = "#d97706";
-        document.getElementById("statusMsg").innerText = "Salvando seu progresso de forma automatizada...";
+        document.getElementById("statusMsg").innerText = "Processando conclusão automática do módulo...";
 
         fetch(URL_API, {
           method: "POST",
@@ -177,7 +170,7 @@
         .then(res => res.json())
         .then(() => {
           document.getElementById("statusMsg").style.color = "#16a34a";
-          document.getElementById("statusMsg").innerText = "Sucesso! Módulo concluído e registrado na sua ficha.";
+          document.getElementById("statusMsg").innerText = "Sucesso! Aula concluída e gravada na sua ficha.";
           if(aulaObjeto) aulaObjeto.concluida = true;
           renderizarCards(bancoAulasGlobais);
         });
