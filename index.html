@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plataforma de Treinamentos</title>
+  <title>Plataforma de Treinamentos - Previa</title>
   <style>
     :root { --primary: #0f172a; --accent: #2563eb; --success: #10b981; --bg: #f1f5f9; --text: #334155; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; margin: 0; background: var(--bg); color: var(--text); }
     
     .container { display: flex; gap: 25px; max-width: 1400px; margin: 0 auto; padding: 30px; box-sizing: border-box; }
     .sidebar { width: 35%; background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); height: calc(100vh - 100px); overflow-y: auto; }
-    .main-content { width: 65%; background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: center; }
+    .main-content { width: 65%; background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: center; min-height: 450px; }
     
     .card-aula { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 15px; cursor: pointer; transition: all 0.25s ease; position: relative; display: flex; flex-direction: column; gap: 10px; }
     .card-aula:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 12px 20px -8px rgba(37,99,235,0.15); }
@@ -34,22 +34,22 @@
 
   <!-- Tela de Carregamento Inicial -->
   <div id="telaCarregando" class="loader-screen">
-    <p>Carregando ambiente virtual de aprendizagem...</p>
+    <p>Conectando à planilha de cursos e carregando as aulas...</p>
   </div>
 
-  <!-- Tela Principal do Curso -->
+  <!-- Tela Principal da Plataforma -->
   <div id="telaPlataforma" class="container" style="display: none;">
     <div class="sidebar">
       <div class="header-boasvindas">
-        <span style="font-size: 13px; color: #64748b; font-weight: 500;">Bem-vindo(a),</span>
-        <div id="nomeUsuario" style="font-size: 18px; font-weight: 700; color: var(--primary);">Aluno</div>
+        <span style="font-size: 13px; color: #64748b; font-weight: 500;">Aluno(a):</span>
+        <div id="nomeUsuario" style="font-size: 18px; font-weight: 700; color: var(--primary);">Carregando...</div>
       </div>
       <h4 style="margin: 0 0 15px 0; color: #64748b; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;">Grade Curricular</h4>
       <div id="listaAulasContainer">Buscando aulas...</div>
     </div>
     
     <div class="main-content">
-      <h2 id="tituloAulaAtiva" style="margin: 0 0 20px 0; color: var(--primary); font-size: 24px;">Selecione uma aula ao lado para começar</h2>
+      <h2 id="tituloAulaAtiva" style="margin: 0 0 20px 0; color: var(--primary); font-size: 24px; text-align: center;">Selecione um módulo ao lado para iniciar</h2>
       <div id="videoContainer" class="video-container">
         <div class="video-wrapper">
           <div id="youtubePlayer"></div>
@@ -59,33 +59,29 @@
     </div>
   </div>
 
+  <!-- API Externa do Player do YouTube -->
   <script src="https://www.youtube.com/iframe_api"></script>
 
   <script>
-    const URL_API = "https://script.google.com/macros/s/AKfycbx-JDfgAHJRvimlqXOeo0scxYZw6WFqeRDwzt6pgOPu2b6xAXoQulxEpsZos6e_f30f9A/exec"; 
+    // =========================================================================
+    // COLE AQUI SUA URL ATUALIZADA DO APPS SCRIPT (LEMBRE-SE DE MANTER O /exec NO FINAL)
+    const URL_API = "COLE_AQUI_SUA_NOVA_URL_DO_APPS_SCRIPT"; 
+    // =========================================================================
     
     let aulaAtualId = "";
     let alunoEmail = "";
     let player = null;
     let bancoAulasGlobais = [];
 
-    // Captura automática dos parâmetros do link assim que a página abre
+    // Executa automaticamente ao abrir o site
     window.onload = function() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const cpf = urlParams.get('cpf');
-      
-      if (!cpf) {
-        document.getElementById("telaCarregando").innerHTML = "<p style='color:red;'>Erro: CPF de autenticação não fornecido no link.</p>";
-        return;
-      }
-      
-      autenticarDireto(cpf);
+      carregarPlataformaDireto();
     };
 
-    function autenticarDireto(cpfAluno) {
+    function carregarPlataformaDireto() {
       fetch(URL_API, {
         method: "POST",
-        body: JSON.stringify({ acao: "autenticarEBuscarDados", cpf: cpfAluno })
+        body: JSON.stringify({ acao: "buscarDadosIniciais" })
       })
       .then(res => res.json())
       .then(resposta => {
@@ -101,8 +97,8 @@
           
           renderizarCards(resposta.aulas);
         }
-      }).catch(() => {
-        document.getElementById("telaCarregando").innerHTML = "<p style='color:red;'>Erro de comunicação com o servidor de dados do curso.</p>";
+      }).catch(erro => {
+        document.getElementById("telaCarregando").innerHTML = "<p style='color:red;'>Erro crítico ao conectar com a planilha de aulas. Verifique se a URL do Script está correta e atualizada.</p>";
       });
     }
 
@@ -111,7 +107,7 @@
       container.innerHTML = "";
       
       if (aulas.length === 0) {
-        container.innerHTML = "<div style='color:#64748b; font-size:14px;'>Nenhuma aula localizada.</div>";
+        container.innerHTML = "<div style='color:#64748b; font-size:14px;'>Nenhuma aula encontrada na planilha.</div>";
         return;
       }
       
@@ -161,7 +157,7 @@
         if (aulaObjeto && aulaObjeto.concluida) { return; }
 
         document.getElementById("statusMsg").style.color = "#d97706";
-        document.getElementById("statusMsg").innerText = "Processando conclusão automática do módulo...";
+        document.getElementById("statusMsg").innerText = "Registrando conclusão automática da aula...";
 
         fetch(URL_API, {
           method: "POST",
@@ -170,7 +166,7 @@
         .then(res => res.json())
         .then(() => {
           document.getElementById("statusMsg").style.color = "#16a34a";
-          document.getElementById("statusMsg").innerText = "Sucesso! Aula concluída e gravada na sua ficha.";
+          document.getElementById("statusMsg").innerText = "Parabéns! Aula marcada como concluída com sucesso.";
           if(aulaObjeto) aulaObjeto.concluida = true;
           renderizarCards(bancoAulasGlobais);
         });
