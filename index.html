@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome para ícones ricos -->
+    <!-- FontAwesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script>
@@ -51,7 +51,6 @@
             --card-border: rgba(255, 255, 255, 0.1);
         }
 
-        /* Classe para aplicação do Modo Claro */
         .light-theme {
             --bg-gradient-start: #f8fafc;
             --bg-gradient-via: #f1f5f9;
@@ -69,7 +68,6 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Escalonamento Dinâmico de Fontes para Acessibilidade */
         .scaled-text-p {
             font-size: calc(0.875rem * var(--font-scale)) !important;
             line-height: 1.6;
@@ -95,36 +93,18 @@
             background: #00848c;
             border-radius: 3px;
         }
-
-        /* Configurações das animações 3D para os Minijogos */
-        .memory-card {
-            perspective: 1000px;
-        }
-        .memory-card-inner {
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-        .memory-card.flipped .memory-card-inner {
-            transform: rotateY(180deg);
-        }
-        .memory-card-front, .memory-card-back {
-            backface-visibility: hidden;
-        }
-        .memory-card-back {
-            transform: rotateY(180deg);
-        }
     </style>
 </head>
 <body class="w-screen h-screen overflow-hidden m-0 p-0 flex flex-col justify-between">
 
 <div id="presentation-wrapper" class="w-full h-full bg-previa-navy flex flex-col justify-between relative overflow-hidden transition-all duration-300">
     
-    <!-- CABEÇALHO DA INTERFACE (Branco com logo e ferramentas de acessibilidade) -->
+    <!-- CABEÇALHO DA INTERFACE -->
     <header class="h-[75px] bg-white text-previa-navy px-6 flex items-center justify-between border-b-2 border-previa-border shrink-0 z-20">
         <div class="flex items-center gap-3">
             <div class="bg-previa-teal text-white font-title font-extrabold text-lg px-4 py-1.5 rounded-lg tracking-wider">PREVIA</div>
             <div class="flex flex-col">
-                <span class="text-xs font-bold text-previa-teal tracking-wide uppercase">Curso Teorico de Primeira Habilitação</span>
+                <span class="text-xs font-bold text-previa-teal tracking-wide uppercase">Curso Teórico de Primeira Habilitação</span>
                 <span class="text-[10px] md:text-xs text-slate-500 font-medium">Módulo 1: Placas, Cores e Caminhos</span>
             </div>
         </div>
@@ -155,10 +135,10 @@
 
     <!-- BARRA DE PROGRESSO SEGMENTADA -->
     <div class="bg-white px-6 pb-3 flex gap-1 z-10 shrink-0" id="progress-bar-container">
-        <!-- Gerado dinamicamente via Javascript -->
+        <!-- Gerado dinamicamente via JS -->
     </div>
 
-    <!-- VIEWPORT DE SLIDES (Área de exibição escura de alta imersão adaptável) -->
+    <!-- VIEWPORT DE SLIDES -->
     <div id="slides-viewport" class="flex-1 relative overflow-hidden bg-gradient-to-br from-[#1e252b] via-[#161c20] to-[#0f1316] transition-all duration-300">
         
         <!-- SLIDE 1: CAPA PRINCIPAL -->
@@ -174,30 +154,11 @@
                     <p class="text-[var(--text-secondary)] scaled-text-p max-w-md">
                         Bem-vindo ao seu primeiro contato real com a linguagem das vias de trânsito brasileiras. Vamos decifrar os símbolos, as cores e as regras de segurança do Código de Trânsito Brasileiro.
                     </p>
-                    <div class="flex items-center gap-4 pt-4">
-                        <div class="flex -space-x-2">
-                            <div class="w-10 h-10 rounded-full border-2 border-previa-navy bg-slate-500 flex items-center justify-center text-xs font-bold text-white">1.1</div>
-                            <div class="w-10 h-10 rounded-full border-2 border-previa-navy bg-previa-teal flex items-center justify-center text-xs font-bold text-white"><i class="fa-solid fa-shield"></i></div>
-                        </div>
-                        <div>
-                            <p class="text-xs font-semibold text-[var(--text-primary)]">Secretaria Nacional de Trânsito</p>
-                            <p class="text-[11px] text-slate-400">Ministério dos Transportes - Direção Defensiva</p>
-                        </div>
-                    </div>
                 </div>
-                <div class="hidden lg:flex justify-center">
-                    <div class="relative w-80 h-80 flex items-center justify-center bg-black/20 rounded-2xl border border-white/5 shadow-inner">
-                        <svg class="w-64 h-64 filter drop-shadow-[0_15px_25px_rgba(0,169,180,0.2)]" viewBox="0 0 200 200">
-                            <path d="M 100 20 L 30 180 L 170 180 Z" fill="#283138" />
-                            <line x1="100" y1="20" x2="100" y2="180" stroke="#ff823a" stroke-width="4" stroke-dasharray="12,10" />
-                            <circle cx="100" cy="50" r="14" fill="#ff823a" />
-                            <text x="100" y="54" font-family="FontAwesome" font-size="12" fill="white" text-anchor="middle">&#xf071;</text>
-                            <circle cx="50" cy="140" r="14" fill="#00848c" />
-                            <text x="50" y="144" font-family="FontAwesome" font-size="12" fill="white" text-anchor="middle">&#xf05a;</text>
-                            <circle cx="150" cy="140" r="14" fill="#ef4444" />
-                            <text x="150" y="144" font-family="FontAwesome" font-size="12" fill="white" text-anchor="middle">&#xf05e;</text>
-                        </svg>
-                    </div>
+                <div class="hidden lg:flex flex-col items-center justify-center p-4 bg-black/20 rounded-2xl border border-white/10">
+                    <!-- INSERIR IMAGEM AQUI: Capa Ilustrativa do Módulo 1 (Trânsito e Placas) -->
+                    <img src="https://placehold.co/400x300/12181c/00a9b4?text=Imagem+da+Capa+Modulo+1" alt="Imagem da Capa Módulo 1 - Trânsito e Placas" class="w-full max-w-md h-auto rounded-xl shadow-md border border-white/10 object-cover">
+                    <span class="text-[11px] text-slate-400 mt-2">Imagem: Linguagem Visual das Vias</span>
                 </div>
             </div>
         </div>
@@ -206,29 +167,29 @@
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-2">
             <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mb-4">O Trânsito Tem Sua Própria <span class="text-previa-tealLight">Linguagem</span></h2>
             <p class="text-[var(--text-secondary)] scaled-text-p max-w-3xl mb-6">
-                Você já parou para pensar em quantas mensagens recebe enquanto dirige? Placas coloridas, linhas pintadas no asfalto, semáforos piscando. Todo esse sistema foi planejado para ser universal, simples e previsível. Uma placa "PARE" em Manaus significa exatamente a mesma coisa que em Porto Alegre!
+                Você já parou para pensar em quantas mensagens recebe enquanto dirige? Placas coloridas, linhas pintadas no asfalto, semáforos piscando. Todo esse sistema foi planejado para ser universal, simples e previsível.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-5 rounded-xl hover:border-previa-teal transition-all duration-300">
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-5 rounded-xl">
                     <div class="w-10 h-10 rounded-lg bg-previa-teal/20 text-previa-tealLight flex items-center justify-center text-lg mb-3">
                         <i class="fa-solid fa-earth-americas"></i>
                     </div>
                     <h3 class="scaled-text-h3 font-title font-bold text-[var(--text-primary)] mb-2">Universalidade Nacional</h3>
-                    <p class="text-slate-400 scaled-text-xs">As mesmas regras de formatos e cores funcionam em todo o território brasileiro, garantindo a sua confiança ao dirigir em qualquer rodovia.</p>
+                    <p class="text-slate-400 scaled-text-xs">As mesmas regras de formatos e cores funcionam em todo o território brasileiro.</p>
                 </div>
-                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-5 rounded-xl hover:border-previa-teal transition-all duration-300">
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-5 rounded-xl">
                     <div class="w-10 h-10 rounded-lg bg-previa-orange/20 text-previa-orange flex items-center justify-center text-lg mb-3">
                         <i class="fa-solid fa-bolt"></i>
                     </div>
                     <h3 class="scaled-text-h3 font-title font-bold text-[var(--text-primary)] mb-2">Leitura Instantânea</h3>
-                    <p class="text-slate-400 scaled-text-xs">Cores e formas icônicas são captadas rapidamente pelo nosso cérebro, mesmo em velocidades superiores a 80 km/h no asfalto.</p>
+                    <p class="text-slate-400 scaled-text-xs">Cores e formas icônicas são captadas rapidamente pelo nosso cérebro.</p>
                 </div>
-                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-5 rounded-xl hover:border-previa-teal transition-all duration-300">
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-5 rounded-xl">
                     <div class="w-10 h-10 rounded-lg bg-green-500/20 text-green-400 flex items-center justify-center text-lg mb-3">
                         <i class="fa-solid fa-shield-heart"></i>
                     </div>
                     <h3 class="scaled-text-h3 font-title font-bold text-[var(--text-primary)] mb-2">Prevenção de Sinistros</h3>
-                    <p class="text-slate-400 scaled-text-xs">Cada placa sinaliza um perigo invisível à frente, funcionando como um verdadeiro copiloto para salvar vidas no trânsito.</p>
+                    <p class="text-slate-400 scaled-text-xs">Cada placa sinaliza um perigo invisível à frente, ajudando a salvar vidas.</p>
                 </div>
             </div>
         </div>
@@ -239,35 +200,35 @@
             <p class="text-[var(--text-secondary)] scaled-text-p max-w-2xl mb-6">Explore as 6 categorias fundamentais de sinalização que organizam o fluxo de tráfego:</p>
             
             <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 overflow-y-auto max-h-[380px] pr-2 custom-scrollbar">
-                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)] hover:bg-white/10 transition-all cursor-pointer group">
-                    <span class="text-previa-tealLight text-xl group-hover:scale-110 transition-transform inline-block mb-2"><i class="fa-solid fa-map-pin"></i></span>
+                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)]">
+                    <span class="text-previa-tealLight text-xl inline-block mb-2"><i class="fa-solid fa-map-pin"></i></span>
                     <h4 class="font-title font-bold text-xs md:text-sm text-[var(--text-primary)]">Sinalização Vertical (Placas)</h4>
-                    <p class="text-slate-400 text-[11px] mt-1">Sinais fixados em postes. São divididas em regulamentação, advertência e indicação.</p>
+                    <p class="text-slate-400 text-[11px] mt-1">Sinais fixados em postes: regulamentação, advertência e indicação.</p>
                 </div>
-                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)] hover:bg-white/10 transition-all cursor-pointer group">
-                    <span class="text-previa-tealLight text-xl group-hover:scale-110 transition-transform inline-block mb-2"><i class="fa-solid fa-road"></i></span>
+                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)]">
+                    <span class="text-previa-tealLight text-xl inline-block mb-2"><i class="fa-solid fa-road"></i></span>
                     <h4 class="font-title font-bold text-xs md:text-sm text-[var(--text-primary)]">Sinalização Horizontal (Solo)</h4>
-                    <p class="text-slate-400 text-[11px] mt-1">Pinturas, faixas de pedestre, linhas de bordo e símbolos pintados no próprio asfalto.</p>
+                    <p class="text-slate-400 text-[11px] mt-1">Pinturas, faixas de pedestre, linhas de bordo e marcas no asfalto.</p>
                 </div>
-                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)] hover:bg-white/10 transition-all cursor-pointer group">
-                    <span class="text-previa-tealLight text-xl group-hover:scale-110 transition-transform inline-block mb-2"><i class="fa-solid fa-traffic-light"></i></span>
+                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)]">
+                    <span class="text-previa-tealLight text-xl inline-block mb-2"><i class="fa-solid fa-traffic-light"></i></span>
                     <h4 class="font-title font-bold text-xs md:text-sm text-[var(--text-primary)]">Sinalização Semafórica</h4>
-                    <p class="text-slate-400 text-[11px] mt-1">Os maestros do trânsito. Controlam o fluxo através de luzes coloridas.</p>
+                    <p class="text-slate-400 text-[11px] mt-1">Sinais luminosos para controle de fluxo veicular e de pedestres.</p>
                 </div>
-                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)] hover:bg-white/10 transition-all cursor-pointer group">
-                    <span class="text-previa-tealLight text-xl group-hover:scale-110 transition-transform inline-block mb-2"><i class="fa-solid fa-bicycle"></i></span>
+                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)]">
+                    <span class="text-previa-tealLight text-xl inline-block mb-2"><i class="fa-solid fa-bicycle"></i></span>
                     <h4 class="font-title font-bold text-xs md:text-sm text-[var(--text-primary)]">Sinalização Cicloviária</h4>
-                    <p class="text-slate-400 text-[11px] mt-1">Marcações específicas de via para garantir trânsito seguro para bicicletas.</p>
+                    <p class="text-slate-400 text-[11px] mt-1">Marcações específicas de vias exclusivas para ciclistas.</p>
                 </div>
-                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)] hover:bg-white/10 transition-all cursor-pointer group">
-                    <span class="text-previa-tealLight text-xl group-hover:scale-110 transition-transform inline-block mb-2"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)]">
+                    <span class="text-previa-tealLight text-xl inline-block mb-2"><i class="fa-solid fa-triangle-exclamation"></i></span>
                     <h4 class="font-title font-bold text-xs md:text-sm text-[var(--text-primary)]">Dispositivos Auxiliares</h4>
-                    <p class="text-slate-400 text-[11px] mt-1">Cones, tachas refletivas, balizadores e defensas metálicas protetoras.</p>
+                    <p class="text-slate-400 text-[11px] mt-1">Cones, tachas refletivas, balizadores e defensas metálicas.</p>
                 </div>
-                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)] hover:bg-white/10 transition-all cursor-pointer group">
-                    <span class="text-previa-tealLight text-xl group-hover:scale-110 transition-transform inline-block mb-2"><i class="fa-solid fa-person-digging"></i></span>
+                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)]">
+                    <span class="text-previa-tealLight text-xl inline-block mb-2"><i class="fa-solid fa-person-digging"></i></span>
                     <h4 class="font-title font-bold text-xs md:text-sm text-[var(--text-primary)]">Sinalização Temporária</h4>
-                    <p class="text-slate-400 text-[11px] mt-1">Avisos provisórios de cor laranja, indicando desvios e obras ativas na rodovia.</p>
+                    <p class="text-slate-400 text-[11px] mt-1">Avisos de cor laranja para obras e desvios operacionais.</p>
                 </div>
             </div>
         </div>
@@ -275,28 +236,29 @@
         <!-- SLIDE 4: AS TRÊS FAMÍLIAS DE PLACAS -->
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-4">
             <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mb-2">As Famílias de <span class="text-previa-tealLight">Placas</span></h2>
-            <p class="text-[var(--text-secondary)] scaled-text-p mb-6">Para dominar de forma intuitiva no trânsito, associe cada tipo com uma cor e uma emoção:</p>
+            <p class="text-[var(--text-secondary)] scaled-text-p mb-6">Associe cada tipo com uma cor e uma finalidade principal:</p>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-red-500/10 border border-red-500/20 p-5 rounded-2xl flex flex-col items-center text-center">
-                    <div class="w-16 h-16 rounded-full border-4 border-red-500 bg-white flex items-center justify-center text-red-500 font-title font-extrabold text-sm shadow-lg mb-4">PARE</div>
+                    <!-- INSERIR IMAGEM AQUI: Placa de Regulamentação (Ex: Placa PARE R-1) -->
+                    <img src="https://placehold.co/120x120/ef4444/ffffff?text=Placa+R-1+PARE" alt="Imagem da placa de Regulamentação PARE R-1" class="w-24 h-24 rounded-lg object-contain mb-3 shadow">
                     <h3 class="scaled-text-h3 font-title font-bold text-[var(--text-primary)]">Regulamentação</h3>
-                    <p class="text-slate-400 scaled-text-xs mt-2 leading-relaxed">São as chefes do trânsito. Elas mandam, proíbem e estabelecem regras obrigatórias.</p>
+                    <p class="text-slate-400 scaled-text-xs mt-2 leading-relaxed">Impõem obrigações, restrições e proibições.</p>
                     <span class="mt-4 px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-[11px] font-semibold uppercase">Vermelho = Obedeça</span>
                 </div>
                 <div class="bg-yellow-500/10 border border-yellow-500/20 p-5 rounded-2xl flex flex-col items-center text-center">
-                    <div class="w-14 h-14 bg-yellow-400 rotate-45 border-2 border-slate-900 flex items-center justify-center text-slate-900 shadow-lg mb-5">
-                        <i class="fa-solid fa-triangle-exclamation -rotate-45 text-lg"></i>
-                    </div>
+                    <!-- INSERIR IMAGEM AQUI: Placa de Advertência (Ex: Placa Lombada A-18) -->
+                    <img src="https://placehold.co/120x120/eab308/000000?text=Placa+A-18+Lombada" alt="Imagem da placa de Advertência Lombada A-18" class="w-24 h-24 rounded-lg object-contain mb-3 shadow">
                     <h3 class="scaled-text-h3 font-title font-bold text-[var(--text-primary)]">Advertência</h3>
-                    <p class="text-slate-400 scaled-text-xs mt-2 leading-relaxed">Vigilantes e protetoras. Alertam sobre perigos ou obstáculos mais à frente.</p>
+                    <p class="text-slate-400 scaled-text-xs mt-2 leading-relaxed">Alertam sobre condições potencialmente perigosas na via.</p>
                     <span class="mt-4 px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-[11px] font-semibold uppercase">Amarelo = Atenção</span>
                 </div>
                 <div class="bg-previa-teal/10 border border-previa-teal/20 p-5 rounded-2xl flex flex-col items-center text-center">
-                    <div class="w-16 h-12 bg-previa-teal rounded-md border border-white/20 flex items-center justify-center text-white text-xs font-bold shadow-lg mb-6">Campinas 15</div>
+                    <!-- INSERIR IMAGEM AQUI: Placa de Indicação (Ex: Placa de Orientação de Destino) -->
+                    <img src="https://placehold.co/120x120/00848c/ffffff?text=Placa+Indicacao" alt="Imagem da placa de Indicação" class="w-24 h-24 rounded-lg object-contain mb-3 shadow">
                     <h3 class="scaled-text-h3 font-title font-bold text-[var(--text-primary)]">Indicação</h3>
-                    <p class="text-slate-400 scaled-text-xs mt-2 leading-relaxed">Prestativas e amigas. Auxiliam na localização, direções e pontos úteis.</p>
-                    <span class="mt-4 px-3 py-1 bg-previa-teal/20 text-previa-tealLight rounded-full text-[11px] font-semibold uppercase">Azul/Verde = Apoio</span>
+                    <p class="text-slate-400 scaled-text-xs mt-2 leading-relaxed">Orientam caminhos, rotas, serviços e pontos turísticos.</p>
+                    <span class="mt-4 px-3 py-1 bg-previa-teal/20 text-previa-tealLight rounded-full text-[11px] font-semibold uppercase">Azul/Verde = Guia</span>
                 </div>
             </div>
         </div>
@@ -308,35 +270,30 @@
                     <span class="text-red-500 font-bold uppercase text-xs tracking-wider">Família de Comando</span>
                     <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)]">Placas de Regulamentação</h2>
                     <p class="text-[var(--text-secondary)] scaled-text-p leading-relaxed">
-                        Estas placas representam a lei materializada no asfalto. Elas impõem obrigações, restrições e proibições imediatas. Seu formato predominante é circular, facilitando o reconhecimento instintivo.
+                        Representam obrigações, restrições e proibições imediatas. Seu descumprimento constitui infração de trânsito regulamentada pelo CTB.
                     </p>
                 </div>
-                <div class="bg-black/20 p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center space-y-6">
-                    <div class="flex gap-8">
-                        <div class="flex flex-col items-center">
-                            <svg class="w-24 h-24 filter drop-shadow-md" viewBox="0 0 100 100">
-                                <polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" fill="#ef4444" stroke="#ffffff" stroke-width="4"/>
-                                <text x="50" y="58" font-family="sans-serif" font-weight="900" font-size="20" fill="#ffffff" text-anchor="middle">PARE</text>
-                            </svg>
-                            <span class="text-xs text-slate-400 mt-2 font-bold">R-1: Parada Obrigatória</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <svg class="w-24 h-24 filter drop-shadow-md" viewBox="0 0 100 100">
-                                <polygon points="50,95 5,15 95,15" fill="#ffffff" stroke="#ef4444" stroke-width="8"/>
-                            </svg>
-                            <span class="text-xs text-slate-400 mt-2 font-bold">R-2: Dê a Preferência</span>
-                        </div>
+                <div class="bg-black/20 p-6 rounded-2xl border border-white/5 flex flex-wrap justify-around items-center gap-6">
+                    <div class="flex flex-col items-center">
+                        <!-- INSERIR IMAGEM AQUI: Placa R-1 (Parada Obrigatória) -->
+                        <img src="https://placehold.co/140x140/ef4444/ffffff?text=Placa+R-1+PARE" alt="Imagem da placa R-1 Parada Obrigatória" class="w-28 h-28 object-contain rounded-lg border border-white/10 shadow-lg">
+                        <span class="text-xs text-slate-300 mt-2 font-bold">Placa R-1: Parada Obrigatória</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <!-- INSERIR IMAGEM AQUI: Placa R-2 (Dê a Preferência) -->
+                        <img src="https://placehold.co/140x140/ffffff/ef4444?text=Placa+R-2+De+a+Preferência" alt="Imagem da placa R-2 Dê a Preferência" class="w-28 h-28 object-contain rounded-lg border border-white/10 shadow-lg">
+                        <span class="text-xs text-slate-300 mt-2 font-bold">Placa R-2: Dê a Preferência</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 6: JOGO 1 - FATO OU FAKE (Gate de Bloqueio) -->
+        <!-- SLIDE 6: ATIVIDADE FATO OU FAKE (Sem bloqueios de avanço) -->
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-6">
             <div class="text-center mb-4">
-                <span class="px-3 py-1 bg-previa-orange/20 text-previa-orange text-xs font-bold rounded-full uppercase tracking-wider">Mini-Jogo Interativo (Bloqueado para Avançar)</span>
+                <span class="px-3 py-1 bg-previa-teal/20 text-previa-tealLight text-xs font-bold rounded-full uppercase tracking-wider">Atividade Prática Opcional</span>
                 <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mt-2">Desafio: Fato ou Fake?</h2>
-                <p class="text-slate-400 text-xs mt-1">Conclua o desafio para liberar o avanço do slide no rodapé.</p>
+                <p class="text-slate-400 text-xs mt-1">Teste seus conhecimentos ou avance livremente para o próximo slide.</p>
             </div>
             <div class="max-w-2xl mx-auto bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-6 relative">
                 <div id="game-fact-container" class="space-y-4">
@@ -348,8 +305,8 @@
                         "Desobedecer à placa de STOP no cruzamento é permitido se não houver tráfego visível à esquerda ou direita."
                     </p>
                     <div class="grid grid-cols-2 gap-4">
-                        <button onclick="answerFact(true)" class="py-3 rounded-xl bg-green-500/20 border border-green-500/40 text-green-300 font-bold hover:bg-green-500/30 transition-all cursor-pointer flex items-center justify-center gap-2">FATO</button>
-                        <button onclick="answerFact(false)" class="py-3 rounded-xl bg-red-500/20 border border-red-500/40 text-red-300 font-bold hover:bg-red-500/30 transition-all cursor-pointer flex items-center justify-center gap-2">FAKE</button>
+                        <button onclick="answerFact(true)" class="py-3 rounded-xl bg-green-500/20 border border-green-500/40 text-green-300 font-bold hover:bg-green-500/30 transition-all cursor-pointer">FATO</button>
+                        <button onclick="answerFact(false)" class="py-3 rounded-xl bg-red-500/20 border border-red-500/40 text-red-300 font-bold hover:bg-red-500/30 transition-all cursor-pointer">FAKE</button>
                     </div>
                 </div>
                 <div id="game-fact-feedback" class="hidden absolute inset-0 bg-previa-navy/95 rounded-2xl flex flex-col items-center justify-center p-6 text-center z-10">
@@ -365,22 +322,31 @@
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-7">
             <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mb-2">Sinais de Regulamentação Mais Comuns</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 overflow-y-auto max-h-[380px] pr-2 custom-scrollbar">
+                
                 <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-4 rounded-xl flex flex-col items-center text-center">
-                    <div class="w-14 h-14 bg-white border-4 border-red-500 rounded-full flex items-center justify-center text-slate-900 font-title font-extrabold text-base relative mb-3">E <span class="absolute w-12 h-1 bg-red-500 rotate-45"></span></div>
+                    <!-- INSERIR IMAGEM AQUI: Placa R-6a (Proibido Estacionar) -->
+                    <img src="https://placehold.co/100x100/ffffff/ef4444?text=Placa+R-6a" alt="Imagem da placa R-6a Proibido Estacionar" class="w-20 h-20 object-contain rounded-full border border-red-500 mb-3 shadow">
                     <h4 class="text-xs font-bold text-[var(--text-primary)] mb-1">R-6a: Proibido Estacionar</h4>
                 </div>
+
                 <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-4 rounded-xl flex flex-col items-center text-center">
-                    <div class="w-14 h-14 bg-white border-4 border-red-500 rounded-full flex items-center justify-center text-slate-900 font-title font-extrabold text-base relative mb-3">E <span class="absolute w-12 h-1 bg-red-500 rotate-45"></span><span class="absolute w-12 h-1 bg-red-500 -rotate-45"></span></div>
+                    <!-- INSERIR IMAGEM AQUI: Placa R-6c (Proibido Parar e Estacionar) -->
+                    <img src="https://placehold.co/100x100/ffffff/ef4444?text=Placa+R-6c" alt="Imagem da placa R-6c Proibido Parar e Estacionar" class="w-20 h-20 object-contain rounded-full border border-red-500 mb-3 shadow">
                     <h4 class="text-xs font-bold text-[var(--text-primary)] mb-1">R-6c: Proibido Parar e Estacionar</h4>
                 </div>
+
                 <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-4 rounded-xl flex flex-col items-center text-center">
-                    <div class="w-14 h-14 bg-white border-4 border-red-500 rounded-full flex items-center justify-center text-slate-900 font-title font-extrabold text-base mb-3">80</div>
+                    <!-- INSERIR IMAGEM AQUI: Placa R-19 (Velocidade Máxima Permitida 80 km/h) -->
+                    <img src="https://placehold.co/100x100/ffffff/ef4444?text=Placa+R-19+80km" alt="Imagem da placa R-19 Velocidade Máxima Permitida" class="w-20 h-20 object-contain rounded-full border border-red-500 mb-3 shadow">
                     <h4 class="text-xs font-bold text-[var(--text-primary)] mb-1">R-19: Vel. Máxima Permitida</h4>
                 </div>
+
                 <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-4 rounded-xl flex flex-col items-center text-center">
-                    <div class="w-14 h-14 bg-white border-4 border-red-500 rounded-full flex items-center justify-center text-slate-900 text-base relative mb-3"><i class="fa-solid fa-arrow-up"></i> <span class="absolute w-12 h-1 bg-red-500 rotate-45"></span></div>
+                    <!-- INSERIR IMAGEM AQUI: Placa R-3 (Sentido Proibido) -->
+                    <img src="https://placehold.co/100x100/ffffff/ef4444?text=Placa+R-3" alt="Imagem da placa R-3 Sentido Proibido" class="w-20 h-20 object-contain rounded-full border border-red-500 mb-3 shadow">
                     <h4 class="text-xs font-bold text-[var(--text-primary)] mb-1">R-3: Sentido Proibido</h4>
                 </div>
+
             </div>
         </div>
 
@@ -388,16 +354,15 @@
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div class="space-y-4">
-                    <span class="text-yellow-400 font-bold uppercase text-xs tracking-wider">Anjos da Guarda do Asfalto</span>
+                    <span class="text-yellow-400 font-bold uppercase text-xs tracking-wider">Alertas Preventivos</span>
                     <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)]">Placas de Advertência</h2>
-                    <p class="text-[var(--text-secondary)] scaled-text-p leading-relaxed">Se as placas de regulamentação dão ordens, as de advertência dão valiosos conselhos preventivos. Elas mostram perigos invisíveis mais à frente.</p>
+                    <p class="text-[var(--text-secondary)] scaled-text-p leading-relaxed">Alertam sobre condições de risco, como curvas acentuadas, lombadas e cruzamentos perigosos à frente.</p>
                 </div>
                 <div class="flex justify-center">
-                    <div class="relative bg-black/20 p-8 rounded-2xl border border-white/5 w-72 h-72 flex flex-col items-center justify-center">
-                        <div class="w-24 h-24 bg-yellow-400 border-2 border-slate-900 rotate-45 flex items-center justify-center shadow-lg">
-                            <svg class="w-12 h-12 -rotate-45" viewBox="0 0 100 100"><path d="M 10 80 Q 50 30 90 80" stroke="#12181c" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
-                        </div>
-                        <span class="text-xs text-slate-400 font-bold mt-8">A-18: Saliência ou Lombada</span>
+                    <div class="bg-black/20 p-6 rounded-2xl border border-white/5 flex flex-col items-center">
+                        <!-- INSERIR IMAGEM AQUI: Placa A-18 (Saliência ou Lombada) -->
+                        <img src="https://placehold.co/180x180/eab308/000000?text=Placa+A-18+Lombada" alt="Imagem da placa A-18 Saliência ou Lombada" class="w-40 h-40 object-contain rounded-lg border border-white/10 shadow-lg">
+                        <span class="text-xs text-slate-300 font-bold mt-4">Placa A-18: Saliência ou Lombada</span>
                     </div>
                 </div>
             </div>
@@ -407,39 +372,98 @@
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-9">
             <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mb-2">Advertência: Situações de Alerta</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 overflow-y-auto max-h-[380px] pr-2 custom-scrollbar">
+                
                 <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-4 rounded-xl flex flex-col items-center text-center">
-                    <div class="w-12 h-12 bg-yellow-400 rotate-45 border border-slate-950 flex items-center justify-center mb-4 text-slate-900"><i class="fa-solid fa-arrow-trend-up -rotate-45 text-base"></i></div>
+                    <!-- INSERIR IMAGEM AQUI: Placa A-2a (Curva à Esquerda) -->
+                    <img src="https://placehold.co/100x100/eab308/000000?text=Placa+A-2a" alt="Imagem da placa A-2a Curva à Esquerda" class="w-20 h-20 object-contain rounded-lg mb-3 shadow">
                     <h4 class="text-xs font-bold text-[var(--text-primary)] mb-1">A-2a: Curva à Esquerda</h4>
                 </div>
+
                 <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-4 rounded-xl flex flex-col items-center text-center">
-                    <div class="w-12 h-12 bg-yellow-400 rotate-45 border border-slate-950 flex items-center justify-center mb-4 text-slate-900"><i class="fa-solid fa-traffic-light -rotate-45 text-base"></i></div>
+                    <!-- INSERIR IMAGEM AQUI: Placa A-14 (Semáforo à Frente) -->
+                    <img src="https://placehold.co/100x100/eab308/000000?text=Placa+A-14" alt="Imagem da placa A-14 Semáforo à Frente" class="w-20 h-20 object-contain rounded-lg mb-3 shadow">
                     <h4 class="text-xs font-bold text-[var(--text-primary)] mb-1">A-14: Semáforo à Frente</h4>
                 </div>
+
                 <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-4 rounded-xl flex flex-col items-center text-center">
-                    <div class="w-12 h-12 bg-yellow-400 rotate-45 border border-slate-950 flex items-center justify-center mb-4 text-slate-900"><i class="fa-solid fa-children -rotate-45 text-base"></i></div>
+                    <!-- INSERIR IMAGEM AQUI: Placa A-33b (Passagem de Escolares) -->
+                    <img src="https://placehold.co/100x100/eab308/000000?text=Placa+A-33b" alt="Imagem da placa A-33b Escolares" class="w-20 h-20 object-contain rounded-lg mb-3 shadow">
                     <h4 class="text-xs font-bold text-[var(--text-primary)] mb-1">A-33b: Escolares</h4>
                 </div>
+
                 <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-4 rounded-xl flex flex-col items-center text-center">
-                    <div class="w-12 h-12 bg-yellow-400 rotate-45 border border-slate-950 flex items-center justify-center mb-4 text-slate-900"><i class="fa-solid fa-ban -rotate-45 text-base"></i></div>
+                    <!-- INSERIR IMAGEM AQUI: Placa A-45 (Rua Sem Saída) -->
+                    <img src="https://placehold.co/100x100/eab308/000000?text=Placa+A-45" alt="Imagem da placa A-45 Rua Sem Saída" class="w-20 h-20 object-contain rounded-lg mb-3 shadow">
                     <h4 class="text-xs font-bold text-[var(--text-primary)] mb-1">A-45: Rua Sem Saída</h4>
                 </div>
+
             </div>
         </div>
 
-        <!-- SLIDE 10: JOGO DA MEMÓRIA COMPLETO -->
+        <!-- SLIDE 10: GUIA DE FIXAÇÃO DE PLACAS E SINAIS (Sem Jogo da Memória) -->
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-10">
-            <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                <div>
-                    <span class="px-3 py-1 bg-previa-teal/20 text-previa-tealLight text-xs font-bold rounded-full uppercase tracking-wider">Super Dinâmica de Fixação (Bloqueado)</span>
-                    <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mt-1">Jogo da Memória Rodoviária</h2>
-                </div>
-                <div class="flex gap-4 mt-2 md:mt-0 text-xs">
-                    <button onclick="resetMemoryGame()" class="px-4 py-1.5 bg-previa-orange hover:bg-previa-orange/80 rounded-lg text-white font-bold transition-all">Reiniciar Jogo</button>
-                    <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-slate-300 font-bold" id="memory-stats">Acertos: 0/6</span>
-                </div>
+            <div class="mb-4">
+                <span class="px-3 py-1 bg-previa-teal/20 text-previa-tealLight text-xs font-bold rounded-full uppercase tracking-wider">Fixação Prática</span>
+                <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mt-1">Galeria Ilustrativa de Placas e Significados</h2>
+                <p class="text-slate-400 text-xs mt-1">Conheça o catálogo das principais placas do Código de Trânsito Brasileiro:</p>
             </div>
-            <div class="grid grid-cols-4 md:grid-cols-6 gap-3 max-w-4xl mx-auto h-[280px]" id="memory-game-board">
-                <!-- Gerado dinamicamente via Javascript -->
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 overflow-y-auto max-h-[350px] pr-2 custom-scrollbar">
+                
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-3 rounded-xl flex items-center gap-3">
+                    <!-- INSERIR IMAGEM AQUI: Placa R-1 (Parada Obrigatória) -->
+                    <img src="https://placehold.co/80x80/ef4444/ffffff?text=R-1" alt="Imagem da placa R-1 Parada Obrigatória" class="w-14 h-14 object-contain rounded-md shrink-0">
+                    <div>
+                        <h4 class="font-bold text-xs text-[var(--text-primary)]">Placa R-1</h4>
+                        <p class="text-[11px] text-slate-400">Parada Obrigatória</p>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-3 rounded-xl flex items-center gap-3">
+                    <!-- INSERIR IMAGEM AQUI: Placa R-19 (Velocidade Máxima Permitida) -->
+                    <img src="https://placehold.co/80x80/ffffff/ef4444?text=R-19" alt="Imagem da placa R-19 Velocidade Máxima" class="w-14 h-14 object-contain rounded-md shrink-0">
+                    <div>
+                        <h4 class="font-bold text-xs text-[var(--text-primary)]">Placa R-19</h4>
+                        <p class="text-[11px] text-slate-400">Velocidade Máxima Permitida</p>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-3 rounded-xl flex items-center gap-3">
+                    <!-- INSERIR IMAGEM AQUI: Placa A-18 (Saliência ou Lombada) -->
+                    <img src="https://placehold.co/80x80/eab308/000000?text=A-18" alt="Imagem da placa A-18 Lombada" class="w-14 h-14 object-contain rounded-md shrink-0">
+                    <div>
+                        <h4 class="font-bold text-xs text-[var(--text-primary)]">Placa A-18</h4>
+                        <p class="text-[11px] text-slate-400">Saliência ou Lombada</p>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-3 rounded-xl flex items-center gap-3">
+                    <!-- INSERIR IMAGEM AQUI: Placa A-2a (Curva à Esquerda) -->
+                    <img src="https://placehold.co/80x80/eab308/000000?text=A-2a" alt="Imagem da placa A-2a Curva à Esquerda" class="w-14 h-14 object-contain rounded-md shrink-0">
+                    <div>
+                        <h4 class="font-bold text-xs text-[var(--text-primary)]">Placa A-2a</h4>
+                        <p class="text-[11px] text-slate-400">Curva à Esquerda</p>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-3 rounded-xl flex items-center gap-3">
+                    <!-- INSERIR IMAGEM AQUI: Placa A-14 (Semáforo à Frente) -->
+                    <img src="https://placehold.co/80x80/eab308/000000?text=A-14" alt="Imagem da placa A-14 Semáforo à Frente" class="w-14 h-14 object-contain rounded-md shrink-0">
+                    <div>
+                        <h4 class="font-bold text-xs text-[var(--text-primary)]">Placa A-14</h4>
+                        <p class="text-[11px] text-slate-400">Sinal Semafórico à Frente</p>
+                    </div>
+                </div>
+
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-3 rounded-xl flex items-center gap-3">
+                    <!-- INSERIR IMAGEM AQUI: Placa A-30a (Trânsito de Ciclistas) -->
+                    <img src="https://placehold.co/80x80/eab308/000000?text=A-30a" alt="Imagem da placa A-30a Trânsito de Ciclistas" class="w-14 h-14 object-contain rounded-md shrink-0">
+                    <div>
+                        <h4 class="font-bold text-xs text-[var(--text-primary)]">Placa A-30a</h4>
+                        <p class="text-[11px] text-slate-400">Trânsito de Ciclistas</p>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -449,16 +473,12 @@
                 <div class="space-y-4">
                     <span class="text-previa-tealLight font-bold uppercase text-xs tracking-wider">Sinalização de Apoio e Guia</span>
                     <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)]">Placas de Indicação</h2>
-                    <p class="text-[var(--text-secondary)] scaled-text-p leading-relaxed">Estas placas são suas guias de viagem. Elas não dão proibições nem alertas de perigo, apenas fornecem informações úteis.</p>
+                    <p class="text-[var(--text-secondary)] scaled-text-p leading-relaxed">Forncecem coordenadas de rotas, orientações de serviços, municípios e distâncias.</p>
                 </div>
-                <div class="space-y-4">
-                    <div class="bg-blue-600 border border-white/20 p-4 rounded-xl flex items-center justify-between text-white shadow-md">
-                        <div>
-                            <span class="text-[10px] font-bold tracking-wider opacity-80 uppercase block">Serviços Auxiliares</span>
-                            <span class="text-sm font-title font-bold">Serviço Mecânico a 500 m</span>
-                        </div>
-                        <span class="text-2xl"><i class="fa-solid fa-wrench"></i></span>
-                    </div>
+                <div class="flex flex-col items-center justify-center p-4 bg-black/20 rounded-2xl border border-white/5">
+                    <!-- INSERIR IMAGEM AQUI: Placa de Indicação (Serviços Auxiliares / Rodovias Azul e Verde) -->
+                    <img src="https://placehold.co/320x180/00848c/ffffff?text=Placa+de+Indicacao+Servicos" alt="Imagem da placa de Indicação e Serviços Auxiliares" class="w-full max-w-xs h-auto rounded-lg border border-white/10 shadow-lg object-contain">
+                    <span class="text-xs text-slate-300 font-bold mt-3">Placas de Orientação e Serviços Auxiliares</span>
                 </div>
             </div>
         </div>
@@ -467,30 +487,29 @@
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-12">
             <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mb-2">Educativas e Atrativos Turísticos</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-5 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <span class="px-2 py-0.5 bg-slate-500 text-white rounded text-[10px] font-bold uppercase">Educativas</span>
-                        <h3 class="scaled-text-h3 font-title font-bold text-[var(--text-primary)] mt-2 mb-1">Placas Brancas</h3>
-                    </div>
-                    <div class="bg-white text-slate-800 border-2 border-slate-400 p-3 rounded-lg text-center font-bold text-xs mt-4">"NÃO FECHE O CRUZAMENTO"</div>
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-5 rounded-2xl flex flex-col items-center text-center">
+                    <span class="px-2 py-0.5 bg-slate-500 text-white rounded text-[10px] font-bold uppercase mb-2">Educativas</span>
+                    <h3 class="scaled-text-h3 font-title font-bold text-[var(--text-primary)] mb-3">Placas Brancas</h3>
+                    <!-- INSERIR IMAGEM AQUI: Placa Educativa Branca (Ex: NÃO FECHE O CRUZAMENTO) -->
+                    <img src="https://placehold.co/240x120/ffffff/000000?text=Placa+Educativa+Branca" alt="Imagem da placa educativa branca" class="w-full max-w-xs h-auto rounded-lg border border-slate-300 shadow">
                 </div>
-                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-5 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <span class="px-2 py-0.5 bg-[#7c2d12] text-white rounded text-[10px] font-bold uppercase">Turísticas</span>
-                        <h3 class="scaled-text-h3 font-title font-bold text-[var(--text-primary)] mt-2 mb-1">Placas Marrons</h3>
-                    </div>
+                <div class="bg-[var(--card-bg)] border border-[var(--card-border)] p-5 rounded-2xl flex flex-col items-center text-center">
+                    <span class="px-2 py-0.5 bg-[#7c2d12] text-white rounded text-[10px] font-bold uppercase mb-2">Turísticas</span>
+                    <h3 class="scaled-text-h3 font-title font-bold text-[var(--text-primary)] mb-3">Placas Marrons</h3>
+                    <!-- INSERIR IMAGEM AQUI: Placa de Atrativo Turístico Marrom -->
+                    <img src="https://placehold.co/240x120/7c2d12/ffffff?text=Placa+Turistica+Marrom" alt="Imagem da placa de atrativo turístico marrom" class="w-full max-w-xs h-auto rounded-lg border border-amber-900 shadow">
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 13: JOGO 3 - CLASSIFICADOR RÁPIDO -->
+        <!-- SLIDE 13: JOGO CLASSIFICADOR (Livre para avançar) -->
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-13">
             <div class="text-center mb-4">
-                <span class="px-3 py-1 bg-previa-orange/20 text-previa-orange text-xs font-bold rounded-full uppercase tracking-wider">Mini-Jogo Classificador (Bloqueado)</span>
-                <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mt-1">Organizador de Famílias</h2>
+                <span class="px-3 py-1 bg-previa-teal/20 text-previa-tealLight text-xs font-bold rounded-full uppercase tracking-wider">Atividade Opcional</span>
+                <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mt-1">Organizador de Famílias de Placas</h2>
             </div>
             <div class="max-w-2xl mx-auto bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-6 flex flex-col items-center">
-                <div class="h-32 flex items-center justify-center mb-6" id="classifier-sign-area"><!-- Gerado Dinamicamente --></div>
+                <div class="h-32 flex items-center justify-center mb-6" id="classifier-sign-area"><!-- Gerado via JS --></div>
                 <div class="grid grid-cols-3 gap-3 w-full">
                     <button onclick="classifySign('regulamentacao')" class="py-3 px-2 bg-red-500/20 border border-red-500/40 text-red-300 font-bold hover:bg-red-500/30 text-xs rounded-xl transition-all cursor-pointer">Regulamentação</button>
                     <button onclick="classifySign('advertencia')" class="py-3 px-2 bg-yellow-500/20 border border-yellow-500/40 text-yellow-400 font-bold hover:bg-yellow-500/30 text-xs rounded-xl transition-all cursor-pointer">Advertência</button>
@@ -502,23 +521,28 @@
 
         <!-- SLIDE 14: SINALIZAÇÃO HORIZONTAL -->
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-14">
-            <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mb-2">Sinalização Horizontal: <span class="text-previa-tealLight">O Chão Fala</span></h2>
+            <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mb-2">Sinalização Horizontal: <span class="text-previa-tealLight">Linhas no Asfalto</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 <div class="space-y-4">
-                    <div class="flex gap-4 items-start">
+                    <div class="flex gap-4 items-start bg-black/20 p-3 rounded-xl border border-white/5">
                         <span class="w-3 h-12 bg-white rounded shrink-0 block"></span>
                         <div>
                             <h4 class="font-title font-bold text-[var(--text-primary)] text-sm">Linhas Brancas</h4>
-                            <p class="text-slate-400 text-xs">Fluxo no mesmo sentido de circulação.</p>
+                            <p class="text-slate-400 text-xs">Separam faixas de fluxo no mesmo sentido de circulação.</p>
                         </div>
                     </div>
-                    <div class="flex gap-4 items-start">
+                    <div class="flex gap-4 items-start bg-black/20 p-3 rounded-xl border border-white/5">
                         <span class="w-3 h-12 bg-yellow-400 rounded shrink-0 block"></span>
                         <div>
                             <h4 class="font-title font-bold text-[var(--text-primary)] text-sm">Linhas Amarelas</h4>
-                            <p class="text-slate-400 text-xs">Fluxo em sentido oposto.</p>
+                            <p class="text-slate-400 text-xs">Separam fluxos de sentidos opostos (pista simples com duplo sentido).</p>
                         </div>
                     </div>
+                </div>
+                <div class="flex flex-col items-center justify-center p-4 bg-black/20 rounded-2xl border border-white/5">
+                    <!-- INSERIR IMAGEM AQUI: Sinalização de Faixa Contínua e Faixa Seccionada no Asfalto -->
+                    <img src="https://placehold.co/320x180/12181c/ffffff?text=Imagem+da+Faixa+Continua+e+Seccionada" alt="Imagem da faixa contínua e seccionada" class="w-full max-w-xs h-auto rounded-lg border border-white/10 shadow">
+                    <span class="text-xs text-slate-300 font-bold mt-2">Diferença: Faixa Contínua vs. Seccionada</span>
                 </div>
             </div>
         </div>
@@ -527,18 +551,25 @@
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-15">
             <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mb-2">Marcas Rodoviárias Especiais</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="p-4 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl">
-                    <span class="text-previa-tealLight text-xl block mb-2"><i class="fa-solid fa-person-walking"></i></span>
+                
+                <div class="p-4 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl flex flex-col items-center text-center">
+                    <!-- INSERIR IMAGEM AQUI: Faixa de Pedestres -->
+                    <img src="https://placehold.co/200x120/12181c/ffffff?text=Faixa+de+Pedestres" alt="Imagem da Faixa de Pedestres" class="w-full h-24 object-cover rounded-lg mb-2 border border-white/10">
                     <h4 class="font-title font-bold text-[var(--text-primary)] text-sm">Faixa de Pedestres</h4>
                 </div>
-                <div class="p-4 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl">
-                    <span class="text-previa-tealLight text-xl block mb-2"><i class="fa-solid fa-magnifying-glass"></i></span>
+
+                <div class="p-4 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl flex flex-col items-center text-center">
+                    <!-- INSERIR IMAGEM AQUI: Marcas de Canalização -->
+                    <img src="https://placehold.co/200x120/12181c/eab308?text=Marcas+de+Canalizacao" alt="Imagem das Marcas de Canalização" class="w-full h-24 object-cover rounded-lg mb-2 border border-white/10">
                     <h4 class="font-title font-bold text-[var(--text-primary)] text-sm">Marcas de Canalização</h4>
                 </div>
-                <div class="p-4 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl">
-                    <span class="text-previa-tealLight text-xl block mb-2"><i class="fa-solid fa-arrow-pointer"></i></span>
+
+                <div class="p-4 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl flex flex-col items-center text-center">
+                    <!-- INSERIR IMAGEM AQUI: Setas Direcionais -->
+                    <img src="https://placehold.co/200x120/12181c/00a9b4?text=Setas+Direcionais" alt="Imagem das Setas Direcionais no Solo" class="w-full h-24 object-cover rounded-lg mb-2 border border-white/10">
                     <h4 class="font-title font-bold text-[var(--text-primary)] text-sm">Setas Direcionais</h4>
                 </div>
+
             </div>
         </div>
 
@@ -548,27 +579,30 @@
                 <div class="space-y-4">
                     <span class="text-previa-orange font-bold uppercase text-xs tracking-wider">Regência do Fluxo</span>
                     <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)]">Sinalização Semafórica</h2>
+                    <p class="text-[var(--text-secondary)] scaled-text-p leading-relaxed">
+                        Controlam a ordem de passagem de veículos e pedestres nos cruzamentos e vias urbanas.
+                    </p>
                 </div>
-                <div class="flex justify-center">
-                    <div class="bg-[#12181c] border-2 border-white/10 w-24 py-6 rounded-full flex flex-col items-center gap-4 shadow-xl">
-                        <div class="w-12 h-12 rounded-full bg-red-600 border-2 border-white shadow-lg animate-pulse"></div>
-                        <div class="w-12 h-12 rounded-full bg-yellow-500/20 border border-transparent"></div>
-                        <div class="w-12 h-12 rounded-full bg-green-500/20 border border-transparent"></div>
-                    </div>
+                <div class="flex flex-col items-center justify-center p-4 bg-black/20 rounded-2xl border border-white/5">
+                    <!-- INSERIR IMAGEM AQUI: Semáforo de Trânsito Veicular e Pedestres -->
+                    <img src="https://placehold.co/180x240/12181c/ef4444?text=Imagem+do+Semaforo" alt="Imagem do semáforo" class="w-36 h-48 object-contain rounded-lg border border-white/10 shadow">
+                    <span class="text-xs text-slate-300 font-bold mt-2">Semáforo de Controle Veicular</span>
                 </div>
             </div>
         </div>
 
         <!-- SLIDE 17: CICLOVIAS E AUXILIARES -->
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-17">
-            <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mb-2">Ciclovias e Auxiliares</h2>
+            <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mb-2">Ciclovias e Dispositivos Auxiliares</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="p-4 bg-red-600/10 border border-red-600/20 rounded-xl space-y-3">
-                    <span class="text-red-500 text-2xl"><i class="fa-solid fa-bicycle"></i></span>
+                <div class="p-4 bg-red-600/10 border border-red-600/20 rounded-xl flex flex-col items-center text-center">
+                    <!-- INSERIR IMAGEM AQUI: Sinalização Cicloviária -->
+                    <img src="https://placehold.co/240x120/7f1d1d/ffffff?text=Sinalizacao+Cicloviaria" alt="Imagem da sinalização cicloviária" class="w-full max-w-xs h-28 object-cover rounded-lg mb-3 border border-red-500/30">
                     <h3 class="font-title font-bold text-[var(--text-primary)] text-base">Sinalização Cicloviária</h3>
                 </div>
-                <div class="p-4 bg-previa-teal/10 border border-previa-teal/20 rounded-xl space-y-3">
-                    <span class="text-previa-tealLight text-2xl"><i class="fa-solid fa-circle-radiation"></i></span>
+                <div class="p-4 bg-previa-teal/10 border border-previa-teal/20 rounded-xl flex flex-col items-center text-center">
+                    <!-- INSERIR IMAGEM AQUI: Dispositivos Auxiliares (Cones, Balizadores, Tachões) -->
+                    <img src="https://placehold.co/240x120/00848c/ffffff?text=Dispositivos+Auxiliares" alt="Imagem dos dispositivos auxiliares de trânsito" class="w-full max-w-xs h-28 object-cover rounded-lg mb-3 border border-previa-teal/30">
                     <h3 class="font-title font-bold text-[var(--text-primary)] text-base">Dispositivos Auxiliares</h3>
                 </div>
             </div>
@@ -580,20 +614,22 @@
                 <div class="space-y-4">
                     <span class="text-orange-500 font-bold uppercase text-xs tracking-wider">Atenção Redobrada</span>
                     <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)]">Sinalização Temporária</h2>
+                    <p class="text-[var(--text-secondary)] scaled-text-p leading-relaxed">
+                        Indica obras, manutenção ou situações provisórias nas pistas. Caracteriza-se pelo uso de fundo laranja de alta visibilidade.
+                    </p>
                 </div>
-                <div class="flex justify-center">
-                    <div class="w-64 h-64 bg-orange-500 text-slate-900 border-4 border-slate-950 p-6 flex flex-col items-center justify-center text-center rounded-xl shadow-lg font-title font-extrabold gap-2">
-                        <span class="text-3xl"><i class="fa-solid fa-person-digging"></i></span>
-                        <p class="text-xl leading-tight">HOMENS<br>TRABALHANDO</p>
-                    </div>
+                <div class="flex flex-col items-center justify-center p-4 bg-black/20 rounded-2xl border border-white/5">
+                    <!-- INSERIR IMAGEM AQUI: Placa Temporária de Obras (Obras a 500m / Homens Trabalhando) -->
+                    <img src="https://placehold.co/240x180/ff823a/000000?text=Placa+Temporaria+de+Obras" alt="Imagem da placa temporária de obras" class="w-56 h-40 object-contain rounded-lg border border-orange-500 shadow">
+                    <span class="text-xs text-slate-300 font-bold mt-2">Placa Temporária de Obras na Pista</span>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 19: JOGO 4 - SIMULAÇÃO DE DECISÃO RÁPIDA -->
+        <!-- SLIDE 19: SIMULAÇÃO DE DECISÃO (Livre para avançar) -->
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-19">
             <div class="text-center mb-4">
-                <span class="px-3 py-1 bg-previa-orange/20 text-previa-orange text-xs font-bold rounded-full uppercase tracking-wider">Mini-Jogo de Decisões (Bloqueado)</span>
+                <span class="px-3 py-1 bg-previa-teal/20 text-previa-tealLight text-xs font-bold rounded-full uppercase tracking-wider">Cenário Prático Opcional</span>
                 <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mt-1">Cenário: Decisões no Volante</h2>
             </div>
             <div class="max-w-2xl mx-auto bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-6">
@@ -616,20 +652,29 @@
                 <div class="space-y-3">
                     <div class="flex items-center gap-3 p-3 bg-previa-orange/15 border border-previa-orange/20 rounded-lg">
                         <span class="w-8 h-8 rounded-full bg-previa-orange text-white flex items-center justify-center font-bold text-sm">1º</span>
-                        <p class="text-xs text-slate-300">Ordens dos Agentes de Trânsito.</p>
+                        <p class="text-xs text-slate-300 font-bold">Ordens dos Agentes de Trânsito prevalecem sobre todos.</p>
                     </div>
                     <div class="flex items-center gap-3 p-3 bg-white/5 border border-white/10 rounded-lg">
                         <span class="w-8 h-8 rounded-full bg-previa-teal text-white flex items-center justify-center font-bold text-sm">2º</span>
-                        <p class="text-xs text-slate-300">Sinais semafóricos (Luminosos).</p>
+                        <p class="text-xs text-slate-300 font-bold">Indicações do Semáforo sobre os demais sinais.</p>
                     </div>
+                    <div class="flex items-center gap-3 p-3 bg-white/5 border border-white/10 rounded-lg">
+                        <span class="w-8 h-8 rounded-full bg-slate-600 text-white flex items-center justify-center font-bold text-sm">3º</span>
+                        <p class="text-xs text-slate-300 font-bold">Demais indicações dos sinais de trânsito e normas de circulação.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-center p-4 bg-black/20 rounded-2xl border border-white/5">
+                    <!-- INSERIR IMAGEM AQUI: Agente de Trânsito direcionando o fluxo -->
+                    <img src="https://placehold.co/240x180/12181c/ff823a?text=Imagem+do+Agente+de+Transito" alt="Imagem de Agente de Trânsito orientando o tráfego" class="w-56 h-40 object-contain rounded-lg border border-white/10 shadow">
+                    <span class="text-xs text-slate-300 font-bold mt-2">Agente de Trânsito: Prioridade Absoluta</span>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 21: DESAFIO FINAL DA HIERARQUIA -->
+        <!-- SLIDE 21: DESAFIO HIERARQUIA (Livre para avançar) -->
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-21">
             <div class="text-center mb-4">
-                <span class="px-3 py-1 bg-previa-orange/20 text-previa-orange text-xs font-bold rounded-full uppercase tracking-wider">Desafio Prático (Bloqueado)</span>
+                <span class="px-3 py-1 bg-previa-teal/20 text-previa-tealLight text-xs font-bold rounded-full uppercase tracking-wider">Atividade Opcional</span>
                 <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mt-1">Desafio: Quem Manda Mais?</h2>
             </div>
             <div class="max-w-xl mx-auto bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl p-6">
@@ -650,7 +695,15 @@
                 <div class="p-4 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl flex gap-3">
                     <span class="text-previa-orange text-xl"><i class="fa-solid fa-heart-pulse"></i></span>
                     <div>
-                        <h4 class="font-title font-bold text-[var(--text-primary)] text-sm">Segurança Multiplicada</h4>
+                        <h4 class="font-title font-bold text-[var(--text-primary)] text-sm mb-1">Segurança Multiplicada</h4>
+                        <p class="text-slate-400 text-xs">Entender os sinais permite prever o comportamento das pistas e dos outros condutores.</p>
+                    </div>
+                </div>
+                <div class="p-4 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl flex gap-3">
+                    <span class="text-previa-tealLight text-xl"><i class="fa-solid fa-shield-check"></i></span>
+                    <div>
+                        <h4 class="font-title font-bold text-[var(--text-primary)] text-sm mb-1">Direção Defensiva Integrada</h4>
+                        <p class="text-slate-400 text-xs">Reduz riscos de acidentes e evita multas por infrações do CTB.</p>
                     </div>
                 </div>
             </div>
@@ -661,54 +714,56 @@
             <h2 class="scaled-text-h2 font-title font-bold text-[var(--text-primary)] mb-2">Revisão Express</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)]">
-                    <span class="text-xs font-bold text-previa-orange uppercase">Cor</span>
+                    <span class="text-xs font-bold text-red-400 uppercase">Regulamentação</span>
                     <h4 class="font-title font-bold text-[var(--text-primary)] text-sm mt-1">Borda Vermelha</h4>
+                    <p class="text-slate-400 text-xs mt-1">Obrigações e Proibições.</p>
+                </div>
+                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)]">
+                    <span class="text-xs font-bold text-yellow-400 uppercase">Advertência</span>
+                    <h4 class="font-title font-bold text-[var(--text-primary)] text-sm mt-1">Amarelo Cúbico</h4>
+                    <p class="text-slate-400 text-xs mt-1">Perigos e Alertas na pista.</p>
+                </div>
+                <div class="p-4 bg-[var(--card-bg)] rounded-xl border border-[var(--card-border)]">
+                    <span class="text-xs font-bold text-previa-tealLight uppercase">Indicação</span>
+                    <h4 class="font-title font-bold text-[var(--text-primary)] text-sm mt-1">Azul / Verde / Marrom</h4>
+                    <p class="text-slate-400 text-xs mt-1">Orientação, Rotas e Turismo.</p>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 24: CONCLUSÃO E RESULTADOS -->
+        <!-- SLIDE 24: CONCLUSÃO -->
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-24">
             <div class="text-center max-w-2xl mx-auto space-y-6">
                 <div class="w-20 h-20 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center text-4xl mx-auto shadow-lg">
-                    <i class="fa-solid fa-trophy animate-bounce"></i>
+                    <i class="fa-solid fa-trophy"></i>
                 </div>
                 <h2 class="text-3xl font-title font-extrabold text-[var(--text-primary)]">Módulo 1 Concluído!</h2>
-                <div class="flex gap-4 justify-center">
-                    <div class="p-3 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl">
-                        <span class="text-lg font-bold text-previa-orange block" id="final-games-score">3 / 3</span>
-                        <span class="text-[10px] text-slate-400">Desafios Vencidos</span>
-                    </div>
-                </div>
+                <p class="text-slate-300 text-sm">Você completou o Módulo 1 sobre Placas, Cores e Caminhos da Legislação de Trânsito do Brasil.</p>
             </div>
         </div>
 
-        <!-- SLIDE 25: PARCERIA B2B -->
+        <!-- SLIDE 25: ENCERRAMENTO -->
         <div class="slide-layout absolute inset-0 p-8 md:p-12 flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-500 transform translate-x-12" id="slide-25">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center h-full">
-                <div class="lg:col-span-7 space-y-6">
-                    <h2 class="text-2xl md:text-4xl font-title font-extrabold text-[var(--text-primary)] leading-tight">Uma Nova Oportunidade Para Seus Alunos</h2>
-                </div>
-                <div class="lg:col-span-5 flex flex-col items-center justify-center bg-slate-900/40 p-6 rounded-2xl border border-white/5 space-y-4">
-                    <div class="bg-white p-4 rounded-xl shadow-lg w-40 h-40 flex items-center justify-center">
-                        <div class="grid grid-cols-5 gap-2 w-full h-full">
-                            <div class="bg-previa-navy rounded"></div><div class="bg-previa-navy rounded"></div><div class="bg-transparent"></div><div class="bg-previa-navy rounded"></div><div class="bg-previa-navy rounded"></div>
-                        </div>
-                    </div>
+                <div class="lg:col-span-12 space-y-4 text-center">
+                    <h2 class="text-2xl md:text-4xl font-title font-extrabold text-[var(--text-primary)] leading-tight">PREVIA - Educação para o Trânsito</h2>
+                    <p class="text-slate-300 text-sm max-w-xl mx-auto">Parabéns por dominar os fundamentos da sinalização viária brasileira.</p>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <!-- CONTROLE DE AUDIO-LEITURA DE ACESSIBILIDADE (Fundo Branco em conformidade) -->
+    <!-- CONTROLE DE AUDIO-LEITURA FIXO (Google Português do Brasil Feminino) -->
     <div class="h-[65px] bg-white border-t border-previa-border px-6 flex items-center justify-between shrink-0 z-20">
         <div class="flex items-center gap-3">
-            <!-- Botão Play/Pause -->
             <button onclick="toggleAudio()" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-previa-teal hover:text-white border border-slate-200 flex items-center justify-center cursor-pointer transition-all duration-300 text-slate-700">
                 <i class="fa-solid fa-play text-sm" id="player-play-icon"></i>
             </button>
-            <span class="text-xs font-bold text-slate-600 hidden sm:inline-block">Narração Assistida</span>
+            <div class="flex flex-col">
+                <span class="text-xs font-bold text-slate-700">Narração Assistida</span>
+                <span class="text-[10px] font-medium text-previa-teal">Voz: Google Português do Brasil (Feminino)</span>
+            </div>
         </div>
 
         <!-- Barra de Progressão do Áudio -->
@@ -716,34 +771,6 @@
             <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                 <div id="player-progress-bar" class="bg-previa-teal h-full w-0 transition-all duration-300"></div>
             </div>
-        </div>
-
-        <!-- Opções de Áudio (Voz, Gênero, Velocidade) -->
-        <div class="flex items-center gap-2">
-            <!-- Seletor de Idioma/Região -->
-            <select id="audio-region-filter" onchange="populateVoices()" class="bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold px-2 py-1.5 rounded-lg focus:outline-none cursor-pointer">
-                <option value="pt-BR" selected>Brasil 🇧🇷</option>
-                <option value="pt-PT">Portugal 🇵🇹</option>
-            </select>
-
-            <!-- Seletor de Gênero -->
-            <select id="audio-gender-filter" onchange="populateVoices()" class="bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold px-2 py-1.5 rounded-lg focus:outline-none cursor-pointer">
-                <option value="female" selected>Feminino ♀️</option>
-                <option value="male">Masculino ♂️</option>
-            </select>
-
-            <!-- Seletor Dinâmico de Vozes do Sistema -->
-            <select id="audio-voice-select" onchange="onVoiceSelected()" class="bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold px-2 py-1.5 rounded-lg focus:outline-none cursor-pointer max-w-[150px]">
-                <!-- Injetado dinamicamente -->
-            </select>
-
-            <span class="text-[11px] font-bold text-slate-500 uppercase hidden md:inline-block">Velocidade</span>
-            <select id="player-speed" onchange="changeSpeechRate(this.value)" class="bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold px-2 py-1.5 rounded-lg focus:outline-none cursor-pointer">
-                <option value="1.0">1.0x</option>
-                <option value="1.25">1.25x</option>
-                <option value="1.5" selected>1.5x</option>
-                <option value="2.0">2.0x</option>
-            </select>
         </div>
     </div>
 
@@ -774,62 +801,18 @@
     let currentSlide = 1;
     const totalSlides = 25;
 
-    /* Slide Locks (Gate de Interação) - Slides com minijogos começam bloqueados */
-    const slideLocks = {
-        6: true,  /* Jogo Fato ou Fake */
-        10: true, /* Jogo da Memória */
-        13: true, /* Jogo Classificador */
-        19: true, /* Cenário de Decisão */
-        21: true  /* Desafio da Hierarquia */
-    };
-
-    /* Dados para os jogos */
-    const facts = [
-        { text: '"Desobedecer à placa de STOP no cruzamento é permitido se não houver tráfego visível à esquerda ou direita."', answer: false, explain: "A parada na placa de STOP é obrigatória e absoluta em qualquer circunstância." },
-        { text: '"A placa R-1 (PARE) obriga a parada completa, mesmo se você puder ver perfeitamente os dois lados do cruzamento livres."', answer: true, explain: "A parada deve ser total. Apenas desacelerar é considerado infração gravíssima." },
-        { text: '"A placa de Dê a Preferência (R-2) exige parada obrigatória em qualquer circunstância."', answer: false, explain: "Ao contrário do STOP, no R-2 você só deve parar se houver fluxo vindo no cruzamento." }
-    ];
-    let currentFactIndex = 0;
-    let factScore = 0;
-
-    const memoryItems = [
-        { id: 1, type: "icon", content: "STOP", matchId: 10 },
-        { id: 2, type: "icon", content: "80 Km/h", matchId: 20 },
-        { id: 3, type: "icon", content: "Lombada", matchId: 30 },
-        { id: 4, type: "icon", content: "Curva", matchId: 40 },
-        { id: 5, type: "icon", content: "Semáforo", matchId: 50 },
-        { id: 6, type: "icon", content: "Ciclistas", matchId: 60 },
-        { id: 10, type: "text", content: "Parada Obrigatória", matchId: 1 },
-        { id: 20, type: "text", content: "Vel. Máxima Permitida", matchId: 2 },
-        { id: 30, type: "text", content: "Saliência na Via", matchId: 3 },
-        { id: 40, type: "text", content: "Curva à Esquerda", matchId: 4 },
-        { id: 50, type: "text", content: "Sinal Semafórico", matchId: 5 },
-        { id: 60, type: "text", content: "Trânsito de Ciclistas", matchId: 6 }
-    ];
-    let shuffledCards = [];
-    let selectedCards = [];
-    let matchedCount = 0;
-
-    const classifierSigns = [
-        { content: "STOP", type: "regulamentacao" },
-        { content: "CURVA", type: "advertencia" },
-        { content: "LOMBA", type: "advertencia" },
-        { content: "80 Km/h", type: "regulamentacao" },
-        { content: "CAMPINAS", type: "indicacao" }
-    ];
-    let currentClassifierIndex = 0;
-    let classifierScore = 0;
+    /* REGRAS ATUALIZADAS: Sem NENHUM bloqueio de travas. O aluno avança livremente! */
 
     const slideTitles = [
         "1. Capa Principal", "2. A Linguagem do Trânsito", "3. Categorias de Sinalização", "4. As Famílias de Placas",
-        "5. Regulamentação", "6. Jogo: Fato ou Fake", "7. Sinais de Regulamentação", "8. Placas de Advertência",
-        "9. Sinais de Advertência", "10. Jogo da Memória", "11. Placas de Indicação", "12. Educativas e Turísticas",
-        "13. Jogo: Organizador de Placas", "14. Sinalização Horizontal", "15. Marcas Rodoviárias", "16. Sinalização Semafórica",
-        "17. Sinalização Cicloviária", "18. Sinalização Temporária", "19. Jogo: Cenário Prático", "20. Hierarquia da Sinalização",
-        "21. Desafio da Hierarquia", "22. Domínio e Prevenção", "23. Revisão Express", "24. Módulo Concluído!", "25. Parceria Estratégica"
+        "5. Regulamentação", "6. Desafio: Fato ou Fake", "7. Sinais de Regulamentação", "8. Placas de Advertência",
+        "9. Sinais de Advertência", "10. Galeria de Placas e Sinais", "11. Placas de Indicação", "12. Educativas e Turísticas",
+        "13. Organizador de Placas", "14. Sinalização Horizontal", "15. Marcas Rodoviárias", "16. Sinalização Semafórica",
+        "17. Sinalização Cicloviária", "18. Sinalização Temporária", "19. Cenário Prático", "20. Hierarquia da Sinalização",
+        "21. Desafio da Hierarquia", "22. Domínio e Prevenção", "23. Revisão Express", "24. Módulo Concluído!", "25. Encerramento"
     ];
 
-    /* Gerando barra de progresso dinamicamente */
+    /* Gerando barra de progresso */
     const progContainer = document.getElementById('progress-bar-container');
     for (let i = 1; i <= totalSlides; i++) {
         const seg = document.createElement('div');
@@ -874,26 +857,17 @@
 
         document.getElementById('slide-dropdown-select').value = currentSlide;
         document.getElementById('slide-indicator-text').innerText = `${currentSlide} / ${totalSlides}`;
+        
+        // O aluno tem navegação 100% livre!
         document.getElementById('btn-prev').disabled = currentSlide === 1;
-        
-        const isLocked = slideLocks[currentSlide] === true;
-        const btnNext = document.getElementById('btn-next');
-        
-        if (currentSlide === totalSlides) {
-            btnNext.disabled = true;
-        } else {
-            btnNext.disabled = isLocked;
-        }
+        document.getElementById('btn-next').disabled = currentSlide === totalSlides;
 
-        /* Reseta o reprodutor de áudio para o novo slide */
         resetAudioPlayer();
-
-        /* Salva progresso no LocalStorage para rodar liso no GitHub Pages */
         localStorage.setItem('previa_current_slide', currentSlide);
     }
 
     function goToNextSlide() {
-        if (currentSlide < totalSlides && !slideLocks[currentSlide]) {
+        if (currentSlide < totalSlides) {
             currentSlide++;
             updateSlide();
         }
@@ -936,55 +910,16 @@
 
     function toggleTheme() {
         const viewport = document.getElementById('slides-viewport');
-        if (viewport.classList.contains('light-theme')) {
-            viewport.classList.remove('light-theme');
-        } else {
-            viewport.classList.add('light-theme');
-        }
+        viewport.classList.toggle('light-theme');
     }
 
-    function playSound(type) {
-        try {
-            const ctx = new (window.AudioContext || window.webkitAudioContext)();
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            osc.connect(gain);
-            gain.connect(ctx.destination);
-            
-            if (type === 'success') {
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(523.25, ctx.currentTime);
-                osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1);
-                gain.gain.setValueAtTime(0.1, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.3);
-            } else if (type === 'error') {
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(196.00, ctx.currentTime);
-                osc.frequency.setValueAtTime(146.83, ctx.currentTime + 0.15);
-                gain.gain.setValueAtTime(0.1, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.4);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.4);
-            }
-        } catch (e) {
-            console.log("Web Audio API bloqueada.");
-        }
-    }
-
-    /* ==========================================================
-       SUPER MOTOR DE ACESSIBILIDADE E VOZ NATIVA FLUIDA (SEM TRAVAR)
-       ========================================================== */
+    /* SISTEMA DE NARRATIVA FIXADO APENAS EM GOOGLE PORTUGUÊS DO BRASIL (FEMININO) */
     let isPlaying = false;
     let sentences = [];
     let sentenceIndex = 0;
-    let speechRate = 1.5;
-    let systemVoices = [];
     let currentUtterance = null;
     let keepAliveInterval = null;
 
-    /* Dicionário de Normalização Fonética (Língua Nativa de Trânsito) */
     function cleanTextForSpeech(text) {
         if (!text) return "";
         let clean = text;
@@ -1002,72 +937,24 @@
         return clean.trim();
     }
 
-    /* Mapeamento Dinâmico de Vozes do Navegador */
-    function populateVoices() {
-        if (typeof speechSynthesis === 'undefined') return;
+    function getGooglePtBrFemaleVoice() {
+        if (typeof speechSynthesis === 'undefined') return null;
+        const voices = window.speechSynthesis.getVoices();
 
-        systemVoices = window.speechSynthesis.getVoices();
-        const regionFilter = document.getElementById('audio-region-filter').value;
-        const genderFilter = document.getElementById('audio-gender-filter').value;
-        const voiceSelect = document.getElementById('audio-voice-select');
-
-        voiceSelect.innerHTML = '';
-
-        /* Filtra vozes pelo idioma selecionado */
-        let filtered = systemVoices.filter(v => v.lang.startsWith(regionFilter));
-
-        /* Heurística avançada para classificar gênero pelo nome da voz */
-        const femaleKeywords = ["maria", "luciana", "helena", "zoraida", "francisca", "joana", "catarina", "rita", "samantha", "susan", "hazel", "google", "alda", "clara", "fernanda", "raquel"];
-        const maleKeywords = ["daniel", "antonio", "manuel", "ricardo", "felipe", "joao", "marcos", "carlos", "roberto", "richard", "george", "david"];
-
-        filtered = filtered.filter(voice => {
-            const nameLower = voice.name.toLowerCase();
-            let isFemale = true; // Default
-
-            /* Se houver correspondência exata ou parcial */
-            const hasFemaleKeyword = femaleKeywords.some(kw => nameLower.includes(kw));
-            const hasMaleKeyword = maleKeywords.some(kw => nameLower.includes(kw));
-
-            if (hasMaleKeyword && !hasFemaleKeyword) {
-                isFemale = false;
-            }
-
-            return genderFilter === 'female' ? isFemale : !isFemale;
-        });
-
-        /* Fallback: caso a filtragem de gênero seja muito estrita e zere a lista */
-        if (filtered.length === 0) {
-            filtered = systemVoices.filter(v => v.lang.startsWith(regionFilter));
+        // 1º Tenta encontrar a voz exata Google Português do Brasil Feminino
+        let voice = voices.find(v => v.lang.includes('pt-BR') && v.name.toLowerCase().includes('google') && !v.name.toLowerCase().includes('male'));
+        
+        // 2º Fallback para qualquer voz feminina de PT-BR
+        if (!voice) {
+            voice = voices.find(v => v.lang.includes('pt-BR') && (v.name.toLowerCase().includes('maria') || v.name.toLowerCase().includes('helena') || v.name.toLowerCase().includes('luciana') || v.name.toLowerCase().includes('female')));
         }
 
-        filtered.forEach(voice => {
-            const opt = document.createElement('option');
-            opt.value = voice.name;
-            let displayName = voice.name;
-            if (displayName.includes('Microsoft')) displayName = displayName.replace('Microsoft', 'MS');
-            if (displayName.includes('Google')) displayName = displayName.replace('Google', 'Google');
-            opt.innerText = displayName;
-            voiceSelect.appendChild(opt);
-        });
-
-        /* Se tiver voz padrão ou recomendada do Chrome/Edge (Natural), escolhe ela automaticamente */
-        const preferred = filtered.find(v => v.name.toLowerCase().includes('natural') || v.name.toLowerCase().includes('neural') || v.name.toLowerCase().includes('google'));
-        if (preferred) {
-            voiceSelect.value = preferred.name;
+        // 3º Fallback genérico para PT-BR
+        if (!voice) {
+            voice = voices.find(v => v.lang.includes('pt-BR') || v.lang.includes('pt_BR'));
         }
-    }
 
-    if (typeof speechSynthesis !== 'undefined') {
-        window.speechSynthesis.onvoiceschanged = () => {
-            populateVoices();
-        };
-    }
-
-    function onVoiceSelected() {
-        if (isPlaying) {
-            stopReading();
-            playReading();
-        }
+        return voice;
     }
 
     function resetAudioPlayer() {
@@ -1084,14 +971,6 @@
             pauseReading();
         } else {
             playReading();
-        }
-    }
-
-    function changeSpeechRate(val) {
-        speechRate = parseFloat(val);
-        if (isPlaying) {
-            window.speechSynthesis.cancel();
-            speakSentence();
         }
     }
 
@@ -1123,10 +1002,10 @@
         if (!slide) return;
 
         const heading = slide.querySelector('h1, h2')?.innerText || '';
-        const description = slide.querySelector('p, .text-slate-300')?.innerText || '';
+        const description = slide.querySelector('p')?.innerText || '';
         
         let extraText = '';
-        const cards = slide.querySelectorAll('.info-card, .game-card, h3, h4, li');
+        const cards = slide.querySelectorAll('h3, h4, li');
         cards.forEach(card => {
             const cleanText = card.innerText.trim();
             if (cleanText && !extraText.includes(cleanText)) {
@@ -1135,11 +1014,9 @@
         });
 
         const fullText = `${heading}. ${description}. ${extraText}`;
-        /* Divide o texto em fragmentos fáceis e fluidos para o sintetizador */
         sentences = fullText.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
     }
 
-    /* Heartbeat Keep-Alive preventivo contra o bug do Chrome que congela o áudio de 15 segundos */
     function startKeepAlive() {
         stopKeepAlive();
         keepAliveInterval = setInterval(() => {
@@ -1147,7 +1024,7 @@
                 window.speechSynthesis.pause();
                 window.speechSynthesis.resume();
             }
-        }, 12000);
+        }, 10000);
     }
 
     function stopKeepAlive() {
@@ -1171,14 +1048,12 @@
         window.speechSynthesis.cancel();
 
         currentUtterance = new SpeechSynthesisUtterance(normalizedText);
-        currentUtterance.rate = speechRate;
-        currentUtterance.lang = document.getElementById('audio-region-filter').value;
+        currentUtterance.rate = 1.2; // Velocidade natural
+        currentUtterance.lang = 'pt-BR';
 
-        /* Associa a voz selecionada no filtro */
-        const selectedVoiceName = document.getElementById('audio-voice-select').value;
-        const selectedVoice = systemVoices.find(v => v.name === selectedVoiceName);
-        if (selectedVoice) {
-            currentUtterance.voice = selectedVoice;
+        const targetVoice = getGooglePtBrFemaleVoice();
+        if (targetVoice) {
+            currentUtterance.voice = targetVoice;
         }
 
         currentUtterance.onend = () => {
@@ -1201,14 +1076,14 @@
         document.getElementById('player-progress-bar').style.width = `${pct}%`;
     }
 
-    /* ==========================================================
-       LÓGICA OPERACIONAL DE TODOS OS MINIJOGOS DE FIXAÇÃO
-       ========================================================== */
-    function unlockCurrentSlide() {
-        slideLocks[currentSlide] = false;
-        document.getElementById('btn-next').disabled = false;
-        playSound('success');
-    }
+    /* ATIVIDADES OPCIONAIS (Livre escolha do aluno) */
+    const facts = [
+        { text: '"Desobedecer à placa de STOP no cruzamento é permitido se não houver tráfego visível à esquerda ou direita."', answer: false, explain: "A parada na placa de STOP é obrigatória e absoluta em qualquer circunstância." },
+        { text: '"A placa R-1 (PARE) obriga a parada completa, mesmo se você puder ver perfeitamente os dois lados do cruzamento livres."', answer: true, explain: "A parada deve ser total." },
+        { text: '"A placa de Dê a Preferência (R-2) exige parada obrigatória em qualquer circunstância."', answer: false, explain: "No R-2 você só deve parar se houver fluxo vindo no cruzamento." }
+    ];
+    let currentFactIndex = 0;
+    let factScore = 0;
 
     function answerFact(userChoice) {
         const currentFact = facts[currentFactIndex];
@@ -1221,14 +1096,12 @@
 
         if (userChoice === currentFact.answer) {
             factScore++;
-            playSound('success');
-            feedIcon.innerHTML = "🏆";
-            feedTitle.innerText = "Resposta Correta!";
+            feedIcon.innerHTML = "✅";
+            feedTitle.innerText = "Correto!";
             feedTitle.className = "text-lg font-bold text-green-400";
         } else {
-            playSound('error');
             feedIcon.innerHTML = "❌";
-            feedTitle.innerText = "Resposta Errada!";
+            feedTitle.innerText = "Incorreto!";
             feedTitle.className = "text-lg font-bold text-red-500";
         }
         feedDesc.innerText = currentFact.explain;
@@ -1242,84 +1115,24 @@
             document.getElementById('fact-text').innerText = facts[currentFactIndex].text;
             document.getElementById('fact-card-counter').innerText = `Questão ${currentFactIndex + 1} de 3`;
         } else {
-            document.getElementById('fact-text').innerText = `Jogo concluído! Você marcou ${factScore} de 3 pontos.`;
+            document.getElementById('fact-text').innerText = `Atividade Concluída! Você pontuou ${factScore} de 3.`;
             document.getElementById('game-fact-container').innerHTML = `
-                <div class="text-center p-6 space-y-4">
-                    <p class="text-lg font-bold text-previa-tealLight">Fato ou Fake Concluído!</p>
-                    <p class="text-xs text-slate-300">Avanço de aula liberado.</p>
+                <div class="text-center p-6 space-y-2">
+                    <p class="text-lg font-bold text-previa-tealLight">Atividade Concluída com Sucesso!</p>
                 </div>
             `;
-            unlockCurrentSlide();
         }
     }
 
-    function shuffle(array) {
-        return array.sort(() => Math.random() - 0.5);
-    }
-
-    function resetMemoryGame() {
-        shuffledCards = shuffle([...memoryItems]);
-        selectedCards = [];
-        matchedCount = 0;
-        document.getElementById('memory-stats').innerText = `Acertos: 0/6`;
-        renderMemoryBoard();
-    }
-
-    function renderMemoryBoard() {
-        const board = document.getElementById('memory-game-board');
-        board.innerHTML = "";
-        shuffledCards.forEach((card, index) => {
-            const cardEl = document.createElement('div');
-            cardEl.className = "memory-card w-full h-16 md:h-20 bg-slate-800 rounded-lg cursor-pointer border border-white/10 overflow-hidden relative";
-            cardEl.setAttribute('onclick', `flipCard(${index})`);
-            cardEl.id = `m-card-${index}`;
-
-            cardEl.innerHTML = `
-                <div class="memory-card-inner w-full h-full relative duration-300">
-                    <div class="memory-card-front absolute inset-0 bg-slate-950 flex items-center justify-center font-bold text-previa-teal text-xs">?</div>
-                    <div class="memory-card-back absolute inset-0 bg-previa-teal/20 text-white flex items-center justify-center p-1 text-[10px] md:text-xs font-bold text-center border-2 border-previa-teal">${card.content}</div>
-                </div>
-            `;
-            board.appendChild(cardEl);
-        });
-    }
-
-    function flipCard(index) {
-        if (selectedCards.length >= 2) return;
-        const cardEl = document.getElementById(`m-card-${index}`);
-        if (cardEl.classList.contains('flipped') || cardEl.classList.contains('matched')) return;
-
-        cardEl.classList.add('flipped');
-        selectedCards.push({ index, card: shuffledCards[index] });
-
-        if (selectedCards.length === 2) {
-            checkMemoryMatch();
-        }
-    }
-
-    function checkMemoryMatch() {
-        const [first, second] = selectedCards;
-        if (first.card.matchId === second.card.id) {
-            document.getElementById(`m-card-${first.index}`).classList.add('matched');
-            document.getElementById(`m-card-${second.index}`).classList.add('matched');
-            matchedCount++;
-            playSound('success');
-            document.getElementById('memory-stats').innerText = `Acertos: ${matchedCount}/6`;
-            selectedCards = [];
-            
-            if (matchedCount === 6) {
-                document.getElementById('memory-stats').innerText = "Vencedor! 🎉";
-                unlockCurrentSlide();
-            }
-        } else {
-            playSound('error');
-            setTimeout(() => {
-                document.getElementById(`m-card-${first.index}`).classList.remove('flipped');
-                document.getElementById(`m-card-${second.index}`).classList.remove('flipped');
-                selectedCards = [];
-            }, 1000);
-        }
-    }
+    const classifierSigns = [
+        { content: "STOP", type: "regulamentacao" },
+        { content: "CURVA", type: "advertencia" },
+        { content: "LOMBA", type: "advertencia" },
+        { content: "80 Km/h", type: "regulamentacao" },
+        { content: "CAMPINAS", type: "indicacao" }
+    ];
+    let currentClassifierIndex = 0;
+    let classifierScore = 0;
 
     function renderClassifier() {
         const signArea = document.getElementById('classifier-sign-area');
@@ -1333,13 +1146,12 @@
             }
 
             signArea.innerHTML = `
-                <div class="${bgClass} flex items-center justify-center font-bold text-xs text-center shadow-lg relative animate-bounce">
+                <div class="${bgClass} flex items-center justify-center font-bold text-xs text-center shadow-lg relative">
                     <span class="${currentSign.type === 'advertencia' ? '-rotate-45' : ''}">${currentSign.content}</span>
                 </div>
             `;
         } else {
             signArea.innerHTML = `<span class="text-xs text-green-400 font-bold">Classificação Finalizada!</span>`;
-            unlockCurrentSlide();
         }
     }
 
@@ -1349,9 +1161,6 @@
         const currentSign = classifierSigns[currentClassifierIndex];
         if (selectedType === currentSign.type) {
             classifierScore++;
-            playSound('success');
-        } else {
-            playSound('error');
         }
 
         currentClassifierIndex++;
@@ -1362,11 +1171,9 @@
     function submitDecision(choiceIndex) {
         const feedback = document.getElementById('decision-feedback');
         if (choiceIndex === 1) {
-            feedback.innerText = "Correto! Reduzir preventivamente na reta é a regra de ouro de curvas.";
+            feedback.innerText = "Correto! Reduzir preventivamente na reta é a decisão correta.";
             feedback.className = "mt-4 text-xs font-bold text-center text-green-400 h-6";
-            unlockCurrentSlide();
         } else {
-            playSound('error');
             feedback.innerText = "Incorreto! Ações abruptas na curva provocam derrapagens graves.";
             feedback.className = "mt-4 text-xs font-bold text-center text-red-400 h-6";
         }
@@ -1375,17 +1182,14 @@
     function submitHierarchy(choiceIndex) {
         const feedback = document.getElementById('hierarchy-feedback');
         if (choiceIndex === 1) {
-            feedback.innerText = "Excelente! Agente de Trânsito lidera, seguido de Semáforo e Placa.";
+            feedback.innerText = "Excelente! Agente de Trânsito lidera a hierarquia.";
             feedback.className = "text-xs font-bold text-center mt-3 text-green-400 h-6";
-            unlockCurrentSlide();
         } else {
-            playSound('error');
-            feedback.innerText = "Incorreto! Relembre a regra: Agente sempre anula tudo.";
+            feedback.innerText = "Incorreto! O Agente de Trânsito sempre prevalece sobre os demais.";
             feedback.className = "text-xs font-bold text-center mt-3 text-red-400 h-6";
         }
     }
 
-    /* Inicialização da Apresentação com suporte a LocalStorage e Carregamento de Tokens salvos */
     window.onload = function() {
         const savedSlide = localStorage.getItem('previa_current_slide');
         if (savedSlide) {
@@ -1393,9 +1197,7 @@
         }
 
         updateSlide();
-        resetMemoryGame();
         renderClassifier();
-        populateVoices();
     };
 </script>
 
